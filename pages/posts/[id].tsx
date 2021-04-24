@@ -1,14 +1,23 @@
 import { GetServerSideProps } from "next";
 import fs from "fs";
 import matter from "gray-matter";
+import ReactMarkdon from "react-markdown";
+import { FC } from "react";
 
-const Post = ({ content }: any) => {
-  return <div>{content}</div>;
+type PageProps = {
+  content: string;
+};
+
+const Post: FC<PageProps> = ({ content }) => {
+  return <ReactMarkdon skipHtml={true}
+    components={{
+      a: ({node, ...props}) => <a className="text-blue" {...props}/>
+    }}
+  >{content}</ReactMarkdon>;
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const path = process.cwd() + "/blogposts/";
-  const fileNames = fs.readdirSync(path);
   const filePath = path + context.query.id + ".md";
 
   const fileContent = fs.readFileSync(filePath, "utf-8");
