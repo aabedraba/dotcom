@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const Header = () => {
   return (
-    <div>
+    <div className="bg-black text-xl	py-2 text-center shadow-lg text-white">
       <Link href="/">
         <a>Home</a>
       </Link>

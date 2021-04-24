@@ -4,9 +4,11 @@ import { Header } from "./Header";
 
 export const Layout: FC = ({ children }) => {
   return (
-    <div>
+    <div className="overflow-hidden	">
       <Header />
+      <div className="flex justify-center py-10">
       {children}
+      </div>
       <Footer />
     </div>
   );
