@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const Layout: FC = ({ children }) => {
   return (
-    <div className="flex flex-col max-w-lg mx-auto h-screen justify-between">
+    <div className="flex flex-col p-3 max-w-lg mx-auto h-screen justify-between">
       <Head>
         <title>Abdallah Abedraba</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
