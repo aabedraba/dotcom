@@ -3,8 +3,6 @@ title: Lover, You Should've Come Over
 date: '2020-01-12'
 ---
 
-# Lover, You Should've Come Over
-
 Raramente suelo encontrar músicos tan completos como Jeff Buckley. Quizás por ser hijo de [Tim Buckly](https://en.wikipedia.org/wiki/Tim_Buckley), se alzó en los hombros de otro gigante.
 
 Empieza con unas serie de acordes preciosa y de armonización compleja creando un ambiente perfecto antes de regalarle a la audiencia la canción. Acompañado por un grupo de músicos immejorable: el bajo y el batería brillan en su desaparición.

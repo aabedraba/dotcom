@@ -3,8 +3,6 @@ title: 'House of Cards'
 date: '2020-01-20'
 ---
 
-# House of Cards
-
 Esta y [Weird Fishes/ Arpeggi](https://www.youtube.com/watch?v=Q888PBtrWc0) son las que más me gustan del álbum In Rainbows de Radiohead. No es su mejor álbum pero... ¿qué álbum podría superar [*Ok Computer*](https://www.youtube.com/watch?v=jNY_wLukVW0&list=PLxzSZG7g8c8x6GYz_FcNr-3zPQ7npP6WF)? Este último, de los mejores álbumes de rock de la historia y una obra de arte, del cual escribiré otro post dedicado.
 
 Una persona que conozco me dijo que ambas canciones le incitaban a pensar, y de eso siempre ha tratado Radiohead. Por eso, Radiohead es la elección por defecto de muchos directores que buscan canciones en sus escenas que inciten al espectador a rumiar sus escenas: [*Vanilla Sky*](https://www.imdb.com/title/tt0259711/), [*Hijo de los hombres*](https://www.imdb.com/title/tt0206634/), [*Person of Interest*](https://www.imdb.com/title/tt1839578/), entre otras ([casi 190](https://www.imdb.com/name/nm1955602/)) películas y series.

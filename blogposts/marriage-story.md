@@ -3,8 +3,6 @@ title: 'Marriage Story'
 date: '2020-01-15'
 ---
 
-# Marriage Story
-
 Estaba reticente a ver esta película. Normalmente no me pierdo ni una comedia-romántica, con finales felices perfectos que me hacen volver a tener un poco de fe en todo; pero esta ni es una comedia-romántica... y tampoco tiene el final más feliz del mundo.
 
 Me di cuenta de que estaba viendo una gran película tan pronto como vi la conversación con la abogada de Nicole (Scarlett Johansson): un diálogo largo, sin música de adorno, un cámara que hace lo que tiene que hacer, crudo y real, con historia contada con amor por parte de Nicole y el surgimiento de los villanos de la película, los abogados.

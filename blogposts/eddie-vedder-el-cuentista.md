@@ -3,8 +3,6 @@ title: 'Eddie Vedder, el Cuentista'
 date: '2020-01-14'
 ---
 
-# Eddie Vedder, el Cuentista
-
 Me gusta casi todo lo que ha hecho Eddie, en grupo o sólo, pero especialmente las contribuciones que hizo Pearl Jam al [Grunge](https://en.wikipedia.org/wiki/Grunge) de los 90, toda una locura cultural y comercial que contaminó al mundo desde Seattle y de la que se hizo varios documentales, aunque “[Hype!](https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=13&ved=2ahUKEwiQvN_46ILnAhXjCWMBHRGPCE4QFjAMegQICRAB&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt0116589%2F&usg=AOvVaw1_7ZhpBvBrDt2viszJOjI3)” es el que más me ha impactado.
 
 Para mí, Eddie no destaca mucho con la voz, aunque me encanta su amplio rango, pero sí es un verdadero maestro escribiendo. Normalmente me empiezan gustando sus canciones, pero una vez veo y analizo la letra es cuando me quedo enganchado, ejemplificado en “[Society](https://www.azlyrics.com/lyrics/eddievedder/society.html)”, del álbum que se le encargó para la película “[Hacia Rutas Salvajes](https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=2ahUKEwj2yaKR64LnAhVq5OAKHb0yCIAQFjAAegQIBxAC&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt0758758%2F&usg=AOvVaw23GgcJ00Fx86KR4bvnKJdq)”.

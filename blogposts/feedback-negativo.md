@@ -2,7 +2,6 @@
 title: 'Feedback negativo'
 date: '2020-01-29'
 ---
-# Feedback negativo
 
 Debatiendo con mi hermana sobre el [Efecto Pigmaleón](https://es.wikipedia.org/wiki/Efecto_Pigmali%C3%B3n), me hizo una pregunta interesante sobre el proceso de [feedback](https://en.wikipedia.org/wiki/Feedback), y es la siguiente: “¿se pueden dar feedbacks negativos?”. Esto me hizo pensar sobre la naturaleza de ello, dando lugar a una pregunta que considero más interesante: “¿puede un feedback ser negativo?”.
 
