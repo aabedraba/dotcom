@@ -2,9 +2,11 @@ import { Layout } from "../components/Layout";
 import fs from "fs";
 import matter from "gray-matter";
 import { GetServerSideProps } from "next";
+import Link from "next/link";
 
 type PageProps = {
   postList: {
+    id: string;
     title: string;
     date: string;
   }[];
@@ -18,7 +20,16 @@ const Index = ({ postList }: PageProps) => {
           return (
             <div className="flex justify-center space-x-5 relative ">
               <p>{post.date}</p>
-              <p className="">{post.title}</p>
+              <Link
+                href={{
+                  pathname: "/posts/[id]",
+                  query: {
+                    id: post.id,
+                  },
+                }}
+              >
+                <a className="">{post.title}</a>
+              </Link>
             </div>
           );
         })}
@@ -36,6 +47,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
     const fileContent = fs.readFileSync(filePath, "utf-8");
     const result = matter(fileContent);
     return {
+      id: fileName.replace(".md", "").trim(),
       title: result.data.title,
       date: result.data.date,
     };
