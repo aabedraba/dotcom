@@ -15,11 +15,11 @@ type PageProps = {
 const Index = ({ postList }: PageProps) => {
   return (
     <Layout>
-      <div className="flex flex-col">
+      <ul className="space-y-7">
         {postList.map((post) => {
           return (
-            <div className="flex justify-center space-x-5 relative ">
-              <p>{post.date}</p>
+            <li className="flex">
+              <span className="block pr-10">{post.date}</span>
               <Link
                 href={{
                   pathname: "/posts/[id]",
@@ -28,12 +28,12 @@ const Index = ({ postList }: PageProps) => {
                   },
                 }}
               >
-                <a className="">{post.title}</a>
+                <a className="text-blue-500">{post.title}</a>
               </Link>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </Layout>
   );
 };
