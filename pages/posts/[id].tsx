@@ -3,17 +3,36 @@ import fs from "fs";
 import matter from "gray-matter";
 import ReactMarkdon from "react-markdown";
 import { FC } from "react";
+import { Layout } from "../../components/Layout";
+import rehypeRaw from 'rehype-raw'
 
 type PageProps = {
   content: string;
+  title: string;
+  date: string;
 };
 
-const Post: FC<PageProps> = ({ content }) => {
-  return <ReactMarkdon skipHtml={true}
-    components={{
-      a: ({node, ...props}) => <a className="text-blue" {...props}/>
-    }}
-  >{content}</ReactMarkdon>;
+const Post: FC<PageProps> = ({ content, title, date }) => {
+  return (
+    <Layout>
+      <div className="space-y-2 text-justify">
+        <h1 className="text-2xl">{title}</h1>
+        <span className="text-sm">{date}</span>
+        <ReactMarkdon
+          rehypePlugins={[rehypeRaw]}
+          components={{
+            a: ({ node, ...props }) => <a className="text-blue-700 underline" {...props} />,
+            h1: ({ node, ...props }) => (
+              <h1 className="text-2xl pb-4" {...props} />
+            ),
+            b: ({ node, ...props }) => <b className="font-bold" {...props} />,
+          }}
+        >
+          {content}
+        </ReactMarkdon>
+      </div>
+    </Layout>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -26,6 +45,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       content: result.content,
+      title: result.data.title,
+      date: result.data.date,
     },
   };
 };
