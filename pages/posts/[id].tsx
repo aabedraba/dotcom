@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import ReactMarkdon from "react-markdown";
 import { FC } from "react";
 import { Layout } from "../../components/Layout";
-import rehypeRaw from 'rehype-raw'
+import rehypeRaw from "rehype-raw";
 
 type PageProps = {
   content: string;
@@ -22,11 +22,24 @@ const Post: FC<PageProps> = ({ content, title, date }) => {
           className="space-y-7 py-2"
           rehypePlugins={[rehypeRaw]}
           components={{
-            a: ({ node, ...props }) => <a className="text-blue-700 underline" {...props} />,
-            h1: ({ node, ...props }) => (
-              <h1 className="text-2xl pb-4" {...props} />
+            a: ({ node, ...props }) => (
+              <a className="text-blue-700 hover:underline" {...props} />
+            ),
+            h1: ({ node, ...props }) => <h1 className="text-2xl" {...props} />,
+            h2: ({ node, ...props }) => (
+              <h2 className="text-xl font-semibold" {...props} />
             ),
             b: ({ node, ...props }) => <b className="font-bold" {...props} />,
+            ul: ({ node, ...props }) => (
+              <ul className="list-inside list-disc " {...props} />
+            ),
+            li: ({ node, ...props }) => <li className="pl-2" {...props} />,
+            p: ({ node, ...props }) => <p {...props} />,
+            img: ({ node, ...props }) => (
+              <div className="flex justify-center">
+                <img {...props} />
+              </div>
+            ),
           }}
         >
           {content}
