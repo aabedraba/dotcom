@@ -6,7 +6,7 @@ import Link from "next/link";
 
 type PageProps = {
   postList: {
-    id: string;
+    slug: string;
     title: string;
     date: string;
   }[];
@@ -22,9 +22,9 @@ const Index = ({ postList }: PageProps) => {
               <span className="block pr-10 text-gray-600">{post.date}</span>
               <Link
                 href={{
-                  pathname: "/posts/[id]",
+                  pathname: "/posts/[slug]",
                   query: {
-                    id: post.id,
+                    slug: post.slug,
                   },
                 }}
               >
@@ -38,7 +38,7 @@ const Index = ({ postList }: PageProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
+export const getStaticProps: GetServerSideProps<PageProps> = async () => {
   const path = process.cwd() + "/blogposts/";
   const fileNames = fs.readdirSync(path);
 
@@ -47,7 +47,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
     const fileContent = fs.readFileSync(filePath, "utf-8");
     const result = matter(fileContent);
     return {
-      id: fileName.replace(".md", "").trim(),
+      slug: fileName.replace(".md", "").trim(),
       title: result.data.title,
       date: result.data.date,
     };

@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticPaths } from "next";
 import fs from "fs";
 import matter from "gray-matter";
 import ReactMarkdon from "react-markdown";
@@ -49,9 +49,27 @@ const Post: FC<PageProps> = ({ content, title, date }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const path = process.cwd() + "/blogposts/";
-  const filePath = path + context.query.id + ".md";
+  const fileNames = fs.readdirSync(path);
+
+  const pathNames = fileNames.map((fileName) => {
+    return {
+      params: {
+        slug: fileName.replace(".md", "").trim(),
+      },
+    };
+  });
+
+  return {
+    paths: [...pathNames],
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetServerSideProps = async (context) => {
+  const path = process.cwd() + "/blogposts/";
+  const filePath = path + context.params?.slug + ".md";
 
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const result = matter(fileContent);
