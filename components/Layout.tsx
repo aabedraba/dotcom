@@ -9,6 +9,12 @@ export const Layout: FC = ({ children }) => {
         <title>Abdallah Abedraba</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      <div
+        style={{
+          minHeight: "75px",
+        }}
+        className="absolute top-0 inset-x-0 shadow-sm"
+      />
       <header className="flex flex-col space-y-2">
         <Link href="/">
           <a className="text-xl font-medium">aabedraba.com</a>

@@ -18,7 +18,7 @@ const Index = ({ postList }: PageProps) => {
       <ul className="space-y-7">
         {postList.map((post) => {
           return (
-            <li className="flex">
+            <li key={post.title} className="flex">
               <span className="block pr-10">{post.date}</span>
               <Link
                 href={{
