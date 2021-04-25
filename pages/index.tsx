@@ -19,7 +19,7 @@ const Index = ({ postList }: PageProps) => {
         {postList.map((post) => {
           return (
             <li key={post.title} className="flex">
-              <span className="block pr-10">{post.date}</span>
+              <span className="block pr-10 text-gray-600">{post.date}</span>
               <Link
                 href={{
                   pathname: "/posts/[id]",
