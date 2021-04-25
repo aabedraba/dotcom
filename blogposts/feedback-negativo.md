@@ -21,7 +21,7 @@ Teniendo en cuenta que hay que saber dar y recibir feedback, aunque creo que lo 
 
 Como corolario a esto último: para hacer que la gente que nos rodea se adapte paulatinamente al proceso de feedback, especialmente nuestros amigos y familiares que no saben recibir feedback, tenemos que hacer un esfuerzo inicial por darles feedback “bueno” por las cosas que hacen bien, continuamente y poco a poco sacar a relucir lo que más nos gusta de ellos, y ellos poco a poco se empezarán a sentir apreciados y entendidos. Una vez tienen ese lazo de confianza, son mucho más susceptibles a recibir un feedback “menos bueno” en el futuro.
 
-Bonus:**lo mejor que hacer cuando alguien da feedback es... ¡callarse!**
+Bonus: **lo mejor que hacer cuando alguien da feedback es... ¡callarse!**
 
 ¿Por qué? Si tenemos razón nosotros y el feedback que nos dan es incorrecto o mal fundamentado,  vamos a proteger nuestro punto vehementemente y sin poder aceptar el feedback que nos están dando porque nosotros tenemos razón y el feedback está mal. Pero habría que sopesar la siguiente situación:  ¿y si el feedback que nos están dando es bueno y nosotros estamos defendiendo lo contrario? Nuestra vehemencia se mantendría, aunque estamos defendiendo algo incorrecto. Y al defender que el feedback no es correcto desincentivamos a la contraparte a que nos de más feedback en el futuro y caemos en un círculo vicioso parecido al del Efecto Pigmaleón.
 
