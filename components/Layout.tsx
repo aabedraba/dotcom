@@ -35,7 +35,7 @@ export const Layout: FC = ({ children }) => {
       <Head>
         <title>Abdallah Abedraba</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/png" href="/favicon.png"/>
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <div
         style={{
@@ -54,10 +54,13 @@ export const Layout: FC = ({ children }) => {
           <Link href="/">
             <a>Home</a>
           </Link>
+          <Link href="/about">
+            <a>About me</a>
+          </Link>
+          <a href="resume.pdf">Resume</a>
           <Link href="/social">
             <a>Social</a>
           </Link>
-          <a href="resume.pdf">Resume</a>
         </nav>
       </header>
       <main className="py-10 mb-auto">{children}</main>
