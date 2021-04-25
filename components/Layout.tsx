@@ -49,7 +49,7 @@ export const Layout: FC = ({ children }) => {
             <Logo />
           </a>
         </Link>
-        <div className="space-x-5">
+        <nav className="space-x-5">
           <Link href="/">
             <a>Home</a>
           </Link>
@@ -57,10 +57,11 @@ export const Layout: FC = ({ children }) => {
             <a>Social</a>
           </Link>
           <a href="resume.pdf">Resume</a>
-        </div>
+        </nav>
       </header>
       <main className="py-10 mb-auto">{children}</main>
-      <footer className="text-left">
+      <footer className="flex flex-col text-left">
+        <span>Escape your randomness</span>
         <span>With {"<"}3</span>
       </footer>
     </div>
