@@ -18,12 +18,6 @@ const Social = () => {
         </li>
         
       </ul>
-      <style jsx>{`
-        a {
-          --tw-text-opacity: 1;
-          color: rgba(59, 130, 246, var(--tw-text-opacity));
-        }
-      `}</style>
     </Layout>
   );
 };

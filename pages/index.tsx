@@ -19,7 +19,7 @@ const Index = ({ postList }: PageProps) => {
         {postList.map((post) => {
           return (
             <li key={post.title} className="flex">
-              <span className="block pr-10 text-gray-600">{post.date}</span>
+              <span className="block pr-10 text-gray-700">{post.date}</span>
               <Link
                 href={{
                   pathname: "/posts/[slug]",
@@ -28,7 +28,7 @@ const Index = ({ postList }: PageProps) => {
                   },
                 }}
               >
-                <a className="text-blue-500">{post.title}</a>
+                <a>{post.title}</a>
               </Link>
             </li>
           );

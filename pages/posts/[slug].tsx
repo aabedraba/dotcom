@@ -23,7 +23,7 @@ const Post: FC<PageProps> = ({ content, title, date }) => {
           rehypePlugins={[rehypeRaw]}
           components={{
             a: ({ node, ...props }) => (
-              <a className="text-blue-700 hover:underline" {...props} />
+              <a className="hover:underline" {...props} />
             ),
             h1: ({ node, ...props }) => <h1 className="text-2xl" {...props} />,
             h2: ({ node, ...props }) => (
