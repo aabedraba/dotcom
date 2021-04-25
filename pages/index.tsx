@@ -55,7 +55,11 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
 
   return {
     props: {
-      postList,
+      postList: postList.sort((a, b) => {
+        const aDate = new Date(a.date);
+        const bDate = new Date(b.date);
+        return aDate < bDate ? 1 : -1;
+      }),
     },
   };
 };
