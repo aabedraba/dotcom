@@ -11,10 +11,9 @@ type PageProps = {
     title: string;
     date: string;
   }[];
-  spotifyAuth: string | null;
 };
 
-const Index = ({ postList, spotifyAuth }: PageProps) => {
+const Index = ({ postList }: PageProps) => {
   const [songDetails, setSongDetails] = useState<{
     title: string;
     artists: string;
@@ -23,25 +22,20 @@ const Index = ({ postList, spotifyAuth }: PageProps) => {
 
   useEffect(() => {
     async function getCurrentSongDetails() {
-      const response = await fetch(
-        "https://api.spotify.com/v1/me/player/recently-played",
-        {
-          headers: {
-            Authorization: `Bearer ${spotifyAuth}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const request = await fetch("api/spotify-auth");
 
-      const json = await response.json();
-      const lastSong = json.items[0];
+      if (request.status === 401) {
+        return;
+      }
+
+      const json = await request.json();
 
       setSongDetails({
-        title: lastSong.track.name,
-        artists: lastSong.track.artists
+        title: json.track.name,
+        artists: json.track.artists
           .map((artist: { name: string }) => artist.name)
           .join(", "),
-        songUrl: lastSong.track.external_urls.spotify,
+        songUrl: json.track.external_urls.spotify,
       });
     }
 
@@ -50,85 +44,47 @@ const Index = ({ postList, spotifyAuth }: PageProps) => {
 
   return (
     <Layout>
-      <ul className="space-y-7">
-        {postList.map((post) => {
-          return (
-            <li key={post.title} className="flex">
-              <span className="block pr-10 text-gray-700">{post.date}</span>
-              <Link
-                href={{
-                  pathname: "/posts/[slug]",
-                  query: {
-                    slug: post.slug,
-                  },
-                }}
-              >
-                <a>{post.title}</a>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-      {songDetails && (
-        <div className="mt-10">
-          <span className="text-gray-900"> Recently played song</span>
-          <p>
-            <a href={songDetails.songUrl}>
-              {songDetails.title}
-              <p>
-                by <span className="italic">{songDetails.artists}</span>
-              </p>
-            </a>
-          </p>
-        </div>
-      )}
+      <div className="space-y-10">
+        <ul className="space-y-7">
+          {postList.map((post) => {
+            return (
+              <li key={post.title} className="flex">
+                <span className="block pr-10 text-gray-700">{post.date}</span>
+                <Link
+                  href={{
+                    pathname: "/posts/[slug]",
+                    query: {
+                      slug: post.slug,
+                    },
+                  }}
+                >
+                  <a>{post.title}</a>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+        {songDetails && (
+          <div>
+            <span className="text-gray-900"> Recently played song</span>
+            <span>
+              <a href={songDetails.songUrl}>
+                {songDetails.title}
+                <p>
+                  by <span className="italic">{songDetails.artists}</span>
+                </p>
+              </a>
+            </span>
+          </div>
+        )}
+      </div>
     </Layout>
   );
-};
-
-const getSpotifyAuthToken = async (
-  clientId: string | null,
-  clientSecret: string | null,
-  refreshToken: string | null
-) => {
-  if (!clientId || !clientSecret || !refreshToken) {
-    return null;
-  }
-
-  const response = await fetch("https://accounts.spotify.com/api/token", {
-    method: "POST",
-    headers: {
-      Authorization:
-        "Basic " + new Buffer(clientId + ":" + clientSecret).toString("base64"),
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: new URLSearchParams({
-      grant_type: "refresh_token",
-      refresh_token: refreshToken,
-    }),
-  });
-
-  if (response.status === 200) {
-    const json = await response.json();
-    return json["access_token"];
-  }
-
-  return null;
 };
 
 export const getStaticProps: GetServerSideProps<PageProps> = async () => {
   const path = process.cwd() + "/blogposts/";
   const fileNames = fs.readdirSync(path);
-
-  const spotifyClientId = process.env.SPOTIFY_CLIENT_ID || null;
-  const spotifySecret = process.env.SPOTIFY_CLIENT_SECRET || null;
-  const spotifyRefreshToken = process.env.SPOTIFY_REFRESH_TOKEN || null;
-
-  const spotifyAuth = await getSpotifyAuthToken(
-    spotifyClientId,
-    spotifySecret,
-    spotifyRefreshToken
-  );
 
   const postList = fileNames.map((fileName) => {
     const filePath = path + fileName;
@@ -148,7 +104,6 @@ export const getStaticProps: GetServerSideProps<PageProps> = async () => {
         const bDate = new Date(b.date);
         return aDate < bDate ? 1 : -1;
       }),
-      spotifyAuth,
     },
   };
 };
