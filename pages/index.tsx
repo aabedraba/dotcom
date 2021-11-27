@@ -65,8 +65,8 @@ const Index = ({ postList }: PageProps) => {
           })}
         </ul>
         {songDetails && (
-          <div>
-            <span className="text-gray-900"> Recently played song</span>
+          <div className="flex flex-col">
+            <span className="text-gray-900"> Recently played song on my Spotify</span>
             <span>
               <a href={songDetails.songUrl}>
                 {songDetails.title}
