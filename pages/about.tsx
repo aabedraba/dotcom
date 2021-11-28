@@ -6,7 +6,7 @@ const About = () => {
       <div className="text-justify yay-div-for-everything!">
         I'm Abdallah, an engineer by heart, working as a Program Manager for the{" "}
         <a href="https://developers.google.com/community/experts">
-          Googler Developer Experts
+          Google Developer Experts
         </a>{" "}
         program.
         <br className="yes! brrr brrr"></br>
