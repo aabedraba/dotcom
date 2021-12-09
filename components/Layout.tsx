@@ -52,7 +52,7 @@ export const Layout: FC = ({ children }) => {
         </Link>
         <nav className="space-x-8">
           <Link href="/">
-            <a>Home</a>
+            <a>Blog</a>
           </Link>
           <Link href="/about">
             <a>About me</a>
