@@ -3,7 +3,7 @@ title: "Moonlight"
 date: "2021-11-28"
 ---
 
-Revisiting [this 3-times Oscar winner](https://www.imdb.com/title/tt4975722) has been such an amazing and pleasurable experience, hitting it in a completely different and yet similar way than when I watched it first time 5 years ago.
+Revisiting [this 3-times Oscar winner](https://www.imdb.com/title/tt4975722) has been such an amazing and pleasurable experience, hitting in a completely different and yet similar way than when I watched it first time 5 years ago.
 
 The movie just has so many fronts. The coming of age of an extremely introverted kid, with a difficult mother relationship (who's also consuming drugs), a lost father, and receiving homophobic bullying, making it yet harder to express his own sexuality and desires. These multifaceted struggles Chiron faces during the entire movie make this picture feel much less fictional and relevant to one's own life and struggles.
 
