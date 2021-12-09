@@ -57,7 +57,7 @@ export const Layout: FC = ({ children }) => {
           <Link href="/about">
             <a>About me</a>
           </Link>
-          <a href="resume.pdf">Résumé</a>
+          <a href="resume-pgm.pdf">Résumé</a>
           <Link href="/social">
             <a>Social</a>
           </Link>
