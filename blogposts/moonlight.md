@@ -11,4 +11,4 @@ But this feeling of genuineness doesn't stop there: the cadence of the dialogues
 
 What I enjoyed the most was how the feeling of longing was depicted. It was almost like a forgotten sense of craving that had been buried, that had developed an understanding of it's impossibility, a stranger that had been gone, and yet it was never dead.
 
-_It seems like a mighty long way_.
+_It seems like a mighty long time_.
