@@ -26,3 +26,6 @@ I feel like a goodbye didn't change much. And even though I was proud to say it 
 Thanks to Rafael, I learned that goodbye was not what I needed. What makes it easier everyday is knowing that I was there, with them, from the very beginning. That I have lived, learned, loved and laughed with them. That I shared so many moments that I will be able to reminisce and prepare through life with.
 
 Goodbye was never the end. And, although it damn sure makes it easier, it's more like a blissful start of a new chapter. With them.
+
+_Six weeks since I let you go,
+and I still feel the same_
