@@ -1,6 +1,6 @@
 ---
 title: 'Goodbye is not the end'
-date: '2021-12-15'
+date: '2021-12-15T21:00:00.000Z'
 ---
 
 It has been more than a decade since I lost my dad, and just about a year ago, Rafael, one of my best friends, passed away. 
