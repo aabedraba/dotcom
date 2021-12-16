@@ -29,5 +29,5 @@ Thanks to Rafael, I learned that goodbye was not what I needed. What makes it ea
 
 Goodbye was never the end. And, although it damn sure makes it easier, it's more like a blissful continuum.
 
-_Six weeks since I let you go,
-and I still feel the same_
+_Six weeks since I let you go,_ </br>
+_and I still feel the same_
