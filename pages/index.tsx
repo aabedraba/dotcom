@@ -49,7 +49,9 @@ const Index = ({ postList }: PageProps) => {
           {postList.map((post) => {
             return (
               <li key={post.title} className="flex">
-                <span className="block pr-10 text-gray-700">{post.date}</span>
+                <span className="block pr-10 text-gray-700">
+                  {new Date(post.date).toISOString().split("T")[0]}
+                </span>
                 <Link
                   href={{
                     pathname: "/posts/[slug]",
@@ -66,7 +68,10 @@ const Index = ({ postList }: PageProps) => {
         </ul>
         {songDetails && (
           <div className="flex flex-col">
-            <span className="text-gray-900"> Recently played song on my Spotify</span>
+            <span className="text-gray-900">
+              {" "}
+              Recently played song on my Spotify
+            </span>
             <span>
               <a href={songDetails.songUrl}>
                 {songDetails.title}

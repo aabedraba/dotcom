@@ -17,7 +17,7 @@ const Post: FC<PageProps> = ({ content, title, date }) => {
     <Layout>
       <div className="space-y-2 text-justify">
         <h1 className="text-2xl">{title}</h1>
-        <span className="text-sm text-gray-600">{date}</span>
+        <span className="text-sm text-gray-600">{new Date(date).toLocaleString()}</span>
         <ReactMarkdon
           className="space-y-7 py-2"
           rehypePlugins={[rehypeRaw]}
