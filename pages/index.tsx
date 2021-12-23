@@ -4,6 +4,8 @@ import matter from "gray-matter";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 
 type PageProps = {
   postList: {
@@ -18,6 +20,7 @@ const Index = ({ postList }: PageProps) => {
     title: string;
     artists: string;
     songUrl: string;
+    lastPlayed: Date;
   } | null>(null);
 
   useEffect(() => {
@@ -36,15 +39,37 @@ const Index = ({ postList }: PageProps) => {
           .map((artist: { name: string }) => artist.name)
           .join(", "),
         songUrl: json.track.external_urls.spotify,
+        lastPlayed: new Date(json.played_at),
       });
     }
 
     getCurrentSongDetails();
   }, []);
 
+  dayjs.extend(relativeTime);
+
   return (
     <Layout>
       <div className="space-y-10">
+        {songDetails && (
+          <div className="flex flex-col">
+            <span className="text-gray-900">
+              {" "}
+              Recently played song on my Spotify
+            </span>
+            <span>
+              <a href={songDetails.songUrl}>
+                {songDetails.title}
+                <p>
+                  by <span className="italic">{songDetails.artists}</span>
+                </p>
+              </a>
+              <p className="text-gray-900">
+                {dayjs(songDetails.lastPlayed).fromNow()}
+              </p>
+            </span>
+          </div>
+        )}
         <ul className="space-y-7">
           {postList.map((post) => {
             return (
@@ -66,22 +91,6 @@ const Index = ({ postList }: PageProps) => {
             );
           })}
         </ul>
-        {songDetails && (
-          <div className="flex flex-col">
-            <span className="text-gray-900">
-              {" "}
-              Recently played song on my Spotify
-            </span>
-            <span>
-              <a href={songDetails.songUrl}>
-                {songDetails.title}
-                <p>
-                  by <span className="italic">{songDetails.artists}</span>
-                </p>
-              </a>
-            </span>
-          </div>
-        )}
       </div>
     </Layout>
   );
