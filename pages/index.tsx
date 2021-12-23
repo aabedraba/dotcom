@@ -55,7 +55,7 @@ const Index = ({ postList }: PageProps) => {
           <div className="flex flex-col">
             <span className="text-gray-900">
               {" "}
-              Recently played song on my Spotify
+              Recently played on my Spotify
             </span>
             <span>
               <a href={songDetails.songUrl}>
