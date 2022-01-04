@@ -61,6 +61,9 @@ export const Layout: FC = ({ children }) => {
           <Link href="/social">
             <a>Social</a>
           </Link>
+          <Link href="/silent-tweets">
+            <a>Silent tweets</a>
+          </Link>
         </nav>
       </header>
       <main className="py-10 mb-auto">{children}</main>
