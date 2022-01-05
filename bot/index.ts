@@ -2,6 +2,7 @@ import TelegramBot from "node-telegram-bot-api";
 import express from "express";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, get, set } from "firebase/database";
+import axios from "axios";
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -48,6 +49,13 @@ bot.onText(/\/new_tweet/, async (msg) => {
       const tweetsArray = [...data.val().filter((value) => value), newTweet];
 
       set(child(dbRef, `tweets`), tweetsArray);
+
+      const request = await axios.post(process.env.VERCEL_DEPLOY_HOOK || "");
+
+      if (request.status !== 201) {
+        bot.sendMessage(chatId, "Deployment failed");
+        return;
+      }
 
       bot.sendMessage(chatId, "Uploaded");
       bot.removeReplyListener(replyListener);
