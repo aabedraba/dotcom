@@ -41,7 +41,7 @@ bot.onText(/\/new_tweet/, async (msg) => {
     async (msg) => {
       const messageText = msg.text;
       const newTweet = {
-        test: messageText,
+        text: messageText,
         date: new Date().getTime(),
       };
 
