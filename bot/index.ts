@@ -1,5 +1,16 @@
 import TelegramBot from "node-telegram-bot-api";
 import express from "express";
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, child, get, set } from "firebase/database";
+
+const firebaseConfig = {
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: "aabedraba-com.firebaseapp.com",
+  databaseURL: "https://aabedraba-com.firebaseio.com/",
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+const dbRef = ref(getDatabase(firebaseApp));
 
 const TOKEN = process.env.TELEGRAM_TOKEN || "";
 const port = process.env.PORT;
@@ -26,9 +37,17 @@ bot.onText(/\/new_tweet/, async (msg) => {
   const replyListener = bot.onReplyToMessage(
     tweetRequest.chat.id,
     tweetRequest.message_id,
-    (msg) => {
-      console.log("msg", msg);
-      const passResponse = msg.text;
+    async (msg) => {
+      const messageText = msg.text;
+      const newTweet = {
+        test: messageText,
+        date: new Date().getTime(),
+      };
+
+      const data = await get(child(dbRef, `tweets`));
+      const tweetsArray = [...data.val().filter((value) => value), newTweet];
+
+      set(child(dbRef, `tweets`), tweetsArray);
 
       bot.sendMessage(chatId, "Uploaded");
       bot.removeReplyListener(replyListener);
