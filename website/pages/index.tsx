@@ -89,7 +89,23 @@ const Index = ({ postList }: PageProps) => {
                   >
                     <a>{post.title}</a>
                   </Link>
-                  <span className="text-sm">{post.tags.map((tag) => `#${tag}`).join(", ")}</span>
+
+                  <div>
+                    {post.tags.map((tag) => {
+                      return (
+                        <Link
+                          href={{
+                            pathname: "/tags/[tag]",
+                            query: {
+                              tag,
+                            },
+                          }}
+                        >
+                          <a className="text-sm text-gray-500 mr-2">#{tag}</a>
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
               </li>
             );
@@ -112,7 +128,7 @@ export const getStaticProps: GetServerSideProps<PageProps> = async () => {
       slug: fileName.replace(".md", "").trim(),
       title: result.data.title,
       date: result.data.date,
-      tags: result.data.tags.split(",").map((tag: string) => tag.trim()),
+      tags: result.data.tags.replace(" ", "").split(","),
     };
   });
 
