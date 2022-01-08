@@ -1,6 +1,7 @@
 ---
 title: 'La bondad del riesgo'
 date: '2020-10-25'
+tags: 'thoughts, spanish'
 ---
 
 Hace unos días me sorprendí mucho por un descubrimiento personal que hice: ¡en general la gente ve el riesgo como algo negativo!

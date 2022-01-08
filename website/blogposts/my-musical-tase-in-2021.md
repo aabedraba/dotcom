@@ -1,6 +1,7 @@
 ---
 title: "My musical taste in 2021"
 date: "2021-04-13"
+tags: 'personal'
 ---
 
 A lot of jazz-fusion: [What about me - Snarky Puppy](https://www.youtube.com/watch?v=fuhHU_BZXSk)

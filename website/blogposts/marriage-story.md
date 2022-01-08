@@ -1,6 +1,7 @@
 ---
 title: 'Marriage Story'
 date: '2020-01-15'
+tags: 'movie-review, spanish'
 ---
 
 Estaba reticente a ver esta película. Normalmente no me pierdo ni una comedia-romántica, con finales felices perfectos que me hacen volver a tener un poco de fe en todo; pero esta ni es una comedia-romántica... y tampoco tiene el final más feliz del mundo.

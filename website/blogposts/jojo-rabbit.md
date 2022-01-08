@@ -1,6 +1,7 @@
 ---
 title: 'Jojo Rabbit'
 date: '2020-01-23'
+tags: 'movie-review'
 ---
 
 Me alegra que en este comienzo de año me encuentre con películas excepcionalmente buenas como [*1917*](https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=2ahUKEwjxuritwpnnAhWF3OAKHX1CBksQFjAAegQIBxAC&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt8579674%2F&usg=AOvVaw3lXfD-5udEbjH7mnXlFhY3) o Jojo Rabbit en este caso, ambas una obra de arte cinematográfica aunque esta es además una historia bonita, infantil, dolorosa y trata una comedia desde el lado del Tercer Reich que, contra todo pronóstico y deseo, es hilarante.

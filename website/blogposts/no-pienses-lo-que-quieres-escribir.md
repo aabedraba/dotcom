@@ -1,6 +1,7 @@
 ---
 title: 'No pienses lo que quieres escribir'
 date: '2020-10-07'
+tags: 'thoughts, spanish'
 ---
 
 Levantarte y pensar "hoy quiero escribir algo" nunca funciona. Si piensas qué quieres escribir, no te saldrá bien. Lo que tienes que trabajar es la calidad de los temas en los que piensas y escribir sobre esos temas. 

@@ -1,6 +1,7 @@
 ---
 title: Lover, You Should've Come Over
 date: '2020-01-12'
+tags: 'music-review, spanish'
 ---
 
 Raramente suelo encontrar músicos tan completos como Jeff Buckley. Quizás por ser hijo de [Tim Buckly](https://en.wikipedia.org/wiki/Tim_Buckley), se alzó en los hombros de otro gigante.

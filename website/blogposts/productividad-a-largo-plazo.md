@@ -1,6 +1,7 @@
 ---
 title: "Productividad a largo plazo"
 date: "2020-10-13"
+tags: 'thoughts, spanish'
 ---
 
 A [Paul Graham](<https://en.wikipedia.org/wiki/Paul_Graham_(programmer)>) le preguntaron sobre la herramienta, truco mental o proceso que él sigue para poder tener una vida productiva. Su respuesta fue casarse y tener niños.

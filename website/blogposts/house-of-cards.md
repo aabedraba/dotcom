@@ -1,6 +1,7 @@
 ---
 title: 'House of Cards'
 date: '2020-01-20'
+tags: 'music-review, spanish'
 ---
 
 Esta y [Weird Fishes/ Arpeggi](https://www.youtube.com/watch?v=Q888PBtrWc0) son las que más me gustan del álbum In Rainbows de Radiohead. No es su mejor álbum pero... ¿qué álbum podría superar [*Ok Computer*](https://www.youtube.com/watch?v=jNY_wLukVW0&list=PLxzSZG7g8c8x6GYz_FcNr-3zPQ7npP6WF)? Este último, de los mejores álbumes de rock de la historia y una obra de arte, del cual escribiré otro post dedicado.

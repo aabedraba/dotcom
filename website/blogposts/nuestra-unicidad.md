@@ -1,6 +1,7 @@
 ---
 title: 'Nuestra Unicidad'
 date: '2020-10-05'
+tags: 'thoughts, spanish'
 ---
 
 Unicidad: *nombre femenino* Cualidad de único.
