@@ -12,6 +12,7 @@ type PageProps = {
     slug: string;
     title: string;
     date: string;
+    tags: string[];
   }[];
 };
 
@@ -70,23 +71,26 @@ const Index = ({ postList }: PageProps) => {
             </span>
           </div>
         )}
-        <ul className="space-y-7">
+        <ul className="space-y-5">
           {postList.map((post) => {
             return (
               <li key={post.title} className="flex">
                 <span className="block pr-10 text-gray-700">
                   {new Date(post.date).toISOString().split("T")[0]}
                 </span>
-                <Link
-                  href={{
-                    pathname: "/posts/[slug]",
-                    query: {
-                      slug: post.slug,
-                    },
-                  }}
-                >
-                  <a>{post.title}</a>
-                </Link>
+                <div className="flex flex-col">
+                  <Link
+                    href={{
+                      pathname: "/posts/[slug]",
+                      query: {
+                        slug: post.slug,
+                      },
+                    }}
+                  >
+                    <a>{post.title}</a>
+                  </Link>
+                  <span className="text-sm">{post.tags.map((tag) => `#${tag}`).join(", ")}</span>
+                </div>
               </li>
             );
           })}
@@ -108,6 +112,7 @@ export const getStaticProps: GetServerSideProps<PageProps> = async () => {
       slug: fileName.replace(".md", "").trim(),
       title: result.data.title,
       date: result.data.date,
+      tags: result.data.tags.split(",").map((tag: string) => tag.trim()),
     };
   });
 
