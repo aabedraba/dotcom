@@ -17,7 +17,7 @@ type PageProps = {
 
 const LoadingLastPlayedSong = () => {
   return (
-    <div className="animate-pulse flex-1 space-y-4">
+    <div className="animate-pulse space-y-4">
       <div className="w-72 h-3 bg-gray-200 rounded"></div>
       <div className="w-56 h-3 bg-gray-200 rounded"></div>
       <div className="w-56 h-3 bg-gray-200 rounded"></div>
@@ -61,8 +61,8 @@ const Index = ({ postList }: PageProps) => {
 
   return (
     <Layout>
-      <div className="space-y-10">
-        <div className="pb-2">
+      <div className="space-y-7">
+        <div>
           {songDetails ? (
             <div className="flex flex-col">
               <span className="text-gray-900">
