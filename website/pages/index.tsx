@@ -1,11 +1,11 @@
 import { Layout } from "../components/Layout";
-import fs from "fs";
-import matter from "gray-matter";
+
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { getBlogposts } from "../lib/blogposts";
 
 type PageProps = {
   postList: {
@@ -117,28 +117,9 @@ const Index = ({ postList }: PageProps) => {
 };
 
 export const getStaticProps: GetServerSideProps<PageProps> = async () => {
-  const path = process.cwd() + "/blogposts/";
-  const fileNames = fs.readdirSync(path);
-
-  const postList = fileNames.map((fileName) => {
-    const filePath = path + fileName;
-    const fileContent = fs.readFileSync(filePath, "utf-8");
-    const result = matter(fileContent);
-    return {
-      slug: fileName.replace(".md", "").trim(),
-      title: result.data.title,
-      date: result.data.date,
-      tags: result.data.tags.replace(" ", "").split(","),
-    };
-  });
-
   return {
     props: {
-      postList: postList.sort((a, b) => {
-        const aDate = new Date(a.date);
-        const bDate = new Date(b.date);
-        return aDate < bDate ? 1 : -1;
-      }),
+      postList: getBlogposts(),
     },
   };
 };

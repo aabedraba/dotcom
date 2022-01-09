@@ -4,6 +4,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { Layout } from "../../components/Layout";
+import { getBlogposts } from "../../lib/blogposts";
 
 type Post = {
   slug: string;
@@ -71,8 +72,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
         .map((tag) => tags.set(tag, tag));
     });
 
-  console.log(tags);
-
   const pathNames = [...tags.values()].map((tag) => {
     return {
       params: {
@@ -97,32 +96,10 @@ export const getStaticProps: GetStaticProps<PageProps> = (context) => {
       },
     };
   }
-
-  const path = process.cwd() + "/blogposts/";
-  const fileNames = fs.readdirSync(path);
-
-  console.log(tagSearch);
-  const postList = fileNames
-    .map((fileName): Post => {
-      const filePath = path + fileName;
-      const fileContent = fs.readFileSync(filePath, "utf-8");
-      const result = matter(fileContent);
-      return {
-        slug: fileName.replace(".md", "").trim(),
-        title: result.data.title,
-        date: result.data.date,
-        tags: result.data.tags.replace(" ", "").split(","),
-      };
-    })
-    .filter((post) => post.tags.includes(tagSearch));
-
+  
   return {
     props: {
-      postList: postList.sort((a, b) => {
-        const aDate = new Date(a.date);
-        const bDate = new Date(b.date);
-        return aDate < bDate ? 1 : -1;
-      }),
+      postList: getBlogposts(tagSearch),
     },
   };
 };
