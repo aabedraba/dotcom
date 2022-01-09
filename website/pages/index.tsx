@@ -62,7 +62,7 @@ const Index = ({ postList }: PageProps) => {
   return (
     <Layout>
       <div className="space-y-10">
-        <div className="pb-3">
+        <div className="pb-2">
           {songDetails ? (
             <div className="flex flex-col">
               <span className="text-gray-900">
