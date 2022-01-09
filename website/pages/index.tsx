@@ -1,10 +1,9 @@
-import { Layout } from "../components/Layout";
-
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
+import { Layout } from "../components/Layout";
 import { getBlogposts } from "../lib/blogposts";
 
 type PageProps = {
@@ -14,6 +13,17 @@ type PageProps = {
     date: string;
     tags: string[];
   }[];
+};
+
+const LoadingLastPlayedSong = () => {
+  return (
+    <div className="animate-pulse flex-1 space-y-4">
+      <div className="w-72 h-3 bg-gray-200 rounded"></div>
+      <div className="w-56 h-3 bg-gray-200 rounded"></div>
+      <div className="w-56 h-3 bg-gray-200 rounded"></div>
+      <div className="w-40 h-3 bg-gray-200 rounded"></div>
+    </div>
+  );
 };
 
 const Index = ({ postList }: PageProps) => {
@@ -52,25 +62,30 @@ const Index = ({ postList }: PageProps) => {
   return (
     <Layout>
       <div className="space-y-10">
-        {songDetails && (
-          <div className="flex flex-col">
-            <span className="text-gray-900">
-              {" "}
-              Recently played on my Spotify
-            </span>
-            <span>
-              <a href={songDetails.songUrl}>
-                {songDetails.title}
-                <p>
-                  by <span className="italic">{songDetails.artists}</span>
+        <div className="pb-3">
+          {songDetails ? (
+            <div className="flex flex-col">
+              <span className="text-gray-900">
+                {" "}
+                Recently played on my Spotify
+              </span>
+              <span>
+                <a href={songDetails.songUrl}>
+                  {songDetails.title}
+                  <p>
+                    by <span className="italic">{songDetails.artists}</span>
+                  </p>
+                </a>
+                <p className="text-gray-900">
+                  {dayjs(songDetails.lastPlayed).fromNow()}
                 </p>
-              </a>
-              <p className="text-gray-900">
-                {dayjs(songDetails.lastPlayed).fromNow()}
-              </p>
-            </span>
-          </div>
-        )}
+              </span>
+            </div>
+          ) : (
+            <LoadingLastPlayedSong />
+          )}
+        </div>
+
         <ul className="space-y-5">
           {postList.map((post) => {
             return (
