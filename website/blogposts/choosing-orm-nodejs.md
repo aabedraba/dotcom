@@ -101,3 +101,7 @@ Another issue that we ran into was that the library from one version to the othe
 Finally we ran into issues related to the serverless environments that we were using, and the prisma team and its very involved community [helped us a lot](https://github.com/prisma/prisma/issues/10353) closing these problems.
 
 After two years of experience and looking forward, Prisma looks like it's stabilizing quite a lot while the production of features keeps a great pace. I definitely will continue using it for new projects!
+
+[1] https://knexjs.org/#typescript-support
+
+[2] https://sequelize.org/v7/manual/typescript.html
