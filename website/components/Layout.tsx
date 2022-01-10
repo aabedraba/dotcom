@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/dist/client/router";
 
 const Logo = () => (
   <svg
@@ -29,7 +30,17 @@ const Logo = () => (
   </svg>
 );
 
+const routes = [
+  { urlDestination: "/", text: "Blog" },
+  { urlDestination: "/about", text: "About me" },
+  { urlDestination: "resume-pgm.pdf", text: "Résume" },
+  { urlDestination: "/social", text: "Social" },
+  { urlDestination: "/silent-tweets", text: "Silent tweets" },
+];
+
 export const Layout: FC = ({ children }) => {
+  const router = useRouter();
+
   return (
     <div className="flex flex-col p-3 max-w-2xl mx-auto h-screen justify-between">
       <Head>
@@ -51,19 +62,23 @@ export const Layout: FC = ({ children }) => {
           </a>
         </Link>
         <nav className="space-x-8">
-          <Link href="/">
-            <a>Blog</a>
-          </Link>
-          <Link href="/about">
-            <a>About me</a>
-          </Link>
-          <a href="resume-pgm.pdf">Résumé</a>
-          <Link href="/social">
-            <a>Social</a>
-          </Link>
-          <Link href="/silent-tweets">
-            <a>Silent tweets</a>
-          </Link>
+          {routes.map((route) => {
+            console.log(router.pathname);
+            console.log(route.urlDestination);
+            if (router.pathname === route.urlDestination) {
+              return (
+                <Link href={route.urlDestination}>
+                  <a className="text-gray-800 font-semibold ">{route.text}</a>
+                </Link>
+              );
+            }
+
+            return (
+              <Link href={route.urlDestination}>
+                <a className="text-gray-800">{route.text}</a>
+              </Link>
+            );
+          })}
         </nav>
       </header>
       <main className="py-10 mb-auto">{children}</main>
