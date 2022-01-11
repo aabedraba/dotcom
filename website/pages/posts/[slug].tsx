@@ -33,7 +33,10 @@ const Post: FC<PageProps> = ({ content, title, date }) => {
             ),
             b: ({ node, ...props }) => <b className="font-bold" {...props} />,
             ul: ({ node, ...props }) => (
-              <ul className="list-inside list-disc " {...props} />
+              <ul className="list-inside list-disc space-y-4" {...props} />
+            ),
+            ol: ({ node, ...props }) => (
+              <ol className="list-inside list-decimal space-y-4" {...props} />
             ),
             li: ({ node, ...props }) => <li className="pl-2" {...props} />,
             p: ({ node, ...props }) => <p {...props} />,
