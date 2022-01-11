@@ -63,8 +63,6 @@ export const Layout: FC = ({ children }) => {
         </Link>
         <nav className="space-x-8">
           {routes.map((route) => {
-            console.log(router.pathname);
-            console.log(route.urlDestination);
             if (router.pathname === route.urlDestination) {
               return (
                 <Link href={route.urlDestination}>
