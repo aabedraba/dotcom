@@ -23,6 +23,7 @@ const SilentTweets = ({ data }: { data: Tweet[] }) => {
       <div>
         {data
           .filter((tweet) => tweet != null)
+          .sort((a, b) => (a < b ? 1 : -1))
           .map((tweet) => {
             return (
               <div className="mt-3">
