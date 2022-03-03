@@ -33,7 +33,7 @@ const Logo = () => (
 const routes = [
   { urlDestination: "/", text: "Blog" },
   { urlDestination: "/about", text: "About me" },
-  { urlDestination: "resume-pgm.pdf", text: "Résume" },
+  { urlDestination: "resume.pdf", text: "Résume" },
   { urlDestination: "/social", text: "Social" },
 ];
 
