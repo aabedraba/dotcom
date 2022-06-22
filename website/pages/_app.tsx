@@ -5,11 +5,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Component {...pageProps} />;
-      <script
-        defer
-        data-domain="aabedraba.com"
-        src="https://plausible.io/js/plausible.js"
-      ></script>
     </>
   );
 }
