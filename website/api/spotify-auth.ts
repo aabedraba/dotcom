@@ -1,13 +1,13 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { serve } from "https://deno.land/std/http/server.ts";
+import { encode as base64Encode } from "https://deno.land/std@0.82.0/encoding/base64.ts";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+serve(async () => {
   const authToken = await getSpotifyAuthToken();
 
   if (!authToken) {
-    return res.status(401);
+    return new Response(null, {
+      status: 401,
+    });
   }
 
   const response = await fetch(
@@ -23,13 +23,13 @@ export default async function handler(
   const json = await response.json();
   const lastSong = json.items[0];
 
-  return res.send(lastSong);
-}
+  return Response.json(lastSong);
+});
 
 const getSpotifyAuthToken = async () => {
-  const spotifyClientId = process.env.SPOTIFY_CLIENT_ID || null;
-  const spotifySecret = process.env.SPOTIFY_CLIENT_SECRET || null;
-  const spotifyRefreshToken = process.env.SPOTIFY_REFRESH_TOKEN || null;
+  const spotifyClientId = Deno.env.get("SPOTIFY_CLIENT_ID");
+  const spotifySecret = Deno.env.get("SPOTIFY_CLIENT_SECRET");
+  const spotifyRefreshToken = Deno.env.get("SPOTIFY_REFRESH_TOKEN");
 
   if (!spotifyClientId || !spotifySecret || !spotifyRefreshToken) {
     return null;
@@ -39,8 +39,7 @@ const getSpotifyAuthToken = async () => {
     method: "POST",
     headers: {
       Authorization:
-        "Basic " +
-        new Buffer(spotifyClientId + ":" + spotifySecret).toString("base64"),
+        "Basic " + base64Encode(spotifyClientId + ":" + spotifySecret),
       "Content-Type": "application/x-www-form-urlencoded",
     },
     body: new URLSearchParams({
