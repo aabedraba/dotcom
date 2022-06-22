@@ -1,4 +1,4 @@
-import { Application } from "https://deno.land/x/oak/mod.ts";
+import { Application } from "https://deno.land/x/oak@v10.6.0/mod.ts";
 import { getSpotifyAuthToken } from "./spotify-token.ts";
 
 const app = new Application();
