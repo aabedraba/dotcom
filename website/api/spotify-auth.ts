@@ -4,7 +4,15 @@ import { getSpotifyAuthToken } from "./spotify-token.ts";
 const app = new Application();
 
 app.use((ctx, next) => {
-  ctx.response.headers.set("Access-Control-Allow-Origin", "*");
+  const websiteUrl = Deno.env.get("WEBSITE_URL");
+
+  if (!websiteUrl) {
+    ctx.response.headers.set("Access-Control-Allow-Origin", "*");
+    return next();
+  }
+
+  ctx.response.headers.set("Access-Control-Allow-Origin", websiteUrl);
+
   return next();
 });
 
