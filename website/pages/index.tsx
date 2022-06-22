@@ -35,7 +35,7 @@ const Index = ({ postList }: PageProps) => {
 
   useEffect(() => {
     async function getCurrentSongDetails() {
-      const request = await fetch("api/spotify-auth");
+      const request = await fetch("aabedraba-spotify-auth.deno.dev");
 
       if (request.status === 401) {
         return;
