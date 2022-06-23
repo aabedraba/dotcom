@@ -111,6 +111,7 @@ const Index = ({ postList }: PageProps) => {
                               tag,
                             },
                           }}
+                          key={tag}
                         >
                           <a className="text-sm text-gray-500 mr-2">#{tag}</a>
                         </Link>

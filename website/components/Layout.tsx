@@ -64,14 +64,14 @@ export const Layout: FC = ({ children }) => {
           {routes.map((route) => {
             if (router.pathname === route.urlDestination) {
               return (
-                <Link href={route.urlDestination}>
+                <Link href={route.urlDestination} key={route.urlDestination}>
                   <a className="text-gray-800 font-semibold ">{route.text}</a>
                 </Link>
               );
             }
 
             return (
-              <Link href={route.urlDestination}>
+              <Link href={route.urlDestination} key={route.urlDestination}>
                 <a className="text-gray-800">{route.text}</a>
               </Link>
             );

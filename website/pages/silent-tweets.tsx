@@ -19,7 +19,7 @@ const SilentTweets = ({ data }: { data: Tweet[] }) => {
           .sort((a, b) => (a < b ? 1 : -1))
           .map((tweet) => {
             return (
-              <div className="mt-3">
+              <div className="mt-3" key={tweet.date}>
                 <p>{tweet.text}</p>
                 <p className="text-gray-700 text-sm">
                   {new Date(tweet.date).toLocaleString()}
