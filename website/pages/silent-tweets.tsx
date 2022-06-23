@@ -1,13 +1,6 @@
 import { Layout } from "../components/Layout";
-import { initializeApp } from "firebase/app";
 import { GetStaticProps } from "next";
-import { getDatabase, ref, child, get } from "firebase/database";
-
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: "aabedraba-com.firebaseapp.com",
-  databaseURL: "https://aabedraba-com.firebaseio.com/",
-};
+import { createClient } from "@supabase/supabase-js";
 
 type Tweet = {
   text: string;
@@ -40,14 +33,29 @@ const SilentTweets = ({ data }: { data: Tweet[] }) => {
 };
 
 export const getStaticProps: GetStaticProps<{ data: Tweet[] }> = async () => {
-  const app = initializeApp(firebaseConfig);
-  const dbRef = ref(getDatabase(app));
+  const supabaseKey = process.env.SUPABASE_KEY;
+  const supabaseUrl = process.env.SUPABASE_URL;
 
-  const data = await get(child(dbRef, `tweets`));
+  if (!supabaseKey || !supabaseUrl) {
+    throw new Error("Supabase environment variables not defined");
+  }
+
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  const query = await supabase.from("silent_tweets").select();
+  const data = query.data;
+
+  if (!data) {
+    throw new Error("No data retrieved from database");
+  }
 
   return {
     props: {
-      data: data.val(),
+      data: data.map((row) => {
+        return {
+          text: row.tweet,
+          date: row.created_at,
+        };
+      }),
     },
   };
 };
