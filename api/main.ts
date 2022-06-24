@@ -5,7 +5,6 @@ import { config } from "./config.ts";
 const app = new Application();
 
 app.use((ctx, next) => {
-  console.log(Deno.env.get("SPOTIFY_REFRESH_TOKEN"));
   ctx.response.headers.set("Access-Control-Allow-Origin", "*");
   return next();
 });
