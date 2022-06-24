@@ -5,9 +5,17 @@ import { handleRequest } from "./bot.ts";
 const app = new Application(); // or whatever you're using
 const router = new Router();
 
+app.use(async (ctx, next) => {
+  console.log("Request");
+  console.log(ctx.request.method);
+  console.log(ctx.request.url);
+  next();
+});
+
 router.get("/" + config.telegramToken, async (ctx) => {
   return (ctx.response.body = "Hello!");
 });
+
 router.post("/" + config.telegramToken, async (ctx) => {
   return await handleRequest();
 });
