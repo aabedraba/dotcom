@@ -9,7 +9,7 @@ router.get("/" + config.telegramToken, async (ctx) => {
   return (ctx.response.body = "Hello!");
 });
 router.post("/" + config.telegramToken, async (ctx) => {
-  return handleRequest();
+  return await handleRequest();
 });
 
 app.use(router.routes());
