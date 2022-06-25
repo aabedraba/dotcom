@@ -5,7 +5,6 @@ import { config } from "./config.ts";
 const app = new Application();
 
 app.use((ctx, next) => {
-  console.log("Jesi");
   ctx.response.headers.set("Access-Control-Allow-Origin", "*");
   return next();
 });
