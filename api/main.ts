@@ -33,3 +33,4 @@ app.use(async (ctx) => {
 });
 
 await app.listen({ port: parseInt(config.port, 10) });
+console.log("Listening on http://localhost:8000");
