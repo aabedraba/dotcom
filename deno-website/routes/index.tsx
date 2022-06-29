@@ -1,21 +1,26 @@
 /** @jsx h */
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
-import type { PageProps } from "$fresh/server.ts";
+import type { PageProps, Handlers } from "$fresh/server.ts";
 import { tw } from "@twind";
 import dayjs from "dayjs";
 import relativetime from "dayjs/plugin/relativeTime";
+import { parse as frontMatter } from "frontmatter";
 import { Layout } from "../components/Layout.tsx";
-
-// type PageProps = {
-//   postList:BlogPostDetails[];
-// };
 
 type BlogPostDetails = {
   slug: string;
   title: string;
   date: string;
   tags: string[];
+};
+
+export const handler: Handlers<BlogPostDetails[] | null> = {
+  GET(_, ctx) {
+    const blogPostDetailList = getBlogPostList();
+
+    return ctx.render(blogPostDetailList);
+  },
 };
 
 const LoadingLastPlayedSong = () => {
@@ -28,15 +33,7 @@ const LoadingLastPlayedSong = () => {
   );
 };
 
-const Index = (props: PageProps) => {
-  const postList: BlogPostDetails[] = [
-    {
-      date: new Date().toISOString(),
-      slug: "new-post",
-      tags: ["new"],
-      title: "New post!",
-    },
-  ];
+const Index = ({ data, ...props }: PageProps<BlogPostDetails[]>) => {
   const [songDetails, setSongDetails] = useState<{
     title: string;
     artists: string;
@@ -64,7 +61,7 @@ const Index = (props: PageProps) => {
       });
     }
 
-    // getCurrentSongDetails();
+    getCurrentSongDetails();
   }, []);
 
   dayjs.extend(relativetime);
@@ -96,7 +93,7 @@ const Index = (props: PageProps) => {
         </div>
 
         <ul className={tw`space-y-5`}>
-          {postList.map((post) => {
+          {data.map((post) => {
             return (
               <li key={post.title} className={tw`flex`}>
                 <span className={tw`block pr-10 text-gray-700`}>
@@ -126,6 +123,38 @@ const Index = (props: PageProps) => {
       </div>
     </Layout>
   );
+};
+
+const getBlogPostList = () => {
+  const path = Deno.cwd() + "/blogposts/";
+  const fileNames = Deno.readDirSync(path);
+
+  const postList: BlogPostDetails[] = [];
+  for (const fileName of fileNames) {
+    const filePath = path + fileName.name;
+    const decoder = new TextDecoder("utf-8");
+    const fileContent = Deno.readFileSync(filePath);
+    const decodedContent = decoder.decode(fileContent);
+    const result = frontMatter(decodedContent);
+    postList.push({
+      slug: fileName.name.replace(".md", "").trim(),
+      // TODO: check how deno solves this `any` thing
+      title: (result.data as any).title,
+      date: (result.data as any).date,
+      tags: (result.data as any).tags.replace(" ", "").split(","),
+    });
+  }
+
+  // TODO enable tag search
+  // if (tagSearch) {
+  //   postList = postList.filter((post) => post.tags.includes(tagSearch));
+  // }
+
+  return postList.sort((a, b) => {
+    const aDate = new Date(a.date);
+    const bDate = new Date(b.date);
+    return aDate < bDate ? 1 : -1;
+  });
 };
 
 export default Index;
