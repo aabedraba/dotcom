@@ -89,13 +89,18 @@ const Post = ({ data, ...props }: PageProps<BlogPost>) => {
 };
 
 export const getBlogPost = async (slug: string): Promise<BlogPost> => {
-  const path = Deno.cwd() + "/blogposts/";
+  // Dirty solution to know when it's running through
+  // Deno Deploy, vs when it's running though local dev
+  const path =
+    Deno.cwd() === "/src"
+      ? `${Deno.cwd()}/deno-website/blogposts`
+      : `${Deno.cwd()}/blogposts/`;
   const filePath = path + slug + ".md";
 
   const decoder = new TextDecoder("utf-8");
-  const fileContent = Deno.readFileSync(filePath);
+  const fileContent = await Deno.readFile(filePath);
   const decodedContent = decoder.decode(fileContent);
-  const result = await frontMatter(decodedContent);
+  const result = frontMatter(decodedContent);
 
   return {
     content: result.content,

@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import relativetime from "dayjs/plugin/relativeTime";
 import { parse as frontMatter } from "frontmatter";
 import { Layout } from "../components/Layout.tsx";
+import { IS_BROWSER } from "$fresh/runtime.ts";
 
 type BlogPostDetails = {
   slug: string;
@@ -137,7 +138,12 @@ const Index = ({ data, ...props }: PageProps<BlogPostDetails[]>) => {
 };
 
 const getBlogPostList = async () => {
-  const path = "./deno-website/blogposts/";
+  // Dirty solution to know when it's running through
+  // Deno Deploy, vs when it's running though local dev
+  const path =
+    Deno.cwd() === "/src"
+      ? `${Deno.cwd()}/deno-website/blogposts`
+      : `${Deno.cwd()}/blogposts/`;
   const fileNames = Deno.readDir(path);
 
   const postList: BlogPostDetails[] = [];
