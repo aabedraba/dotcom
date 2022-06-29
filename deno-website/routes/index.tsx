@@ -69,7 +69,7 @@ const Index = ({ data, ...props }: PageProps<BlogPostDetails[]>) => {
   return (
     <Layout url={props.url}>
       <div className={tw`space-y-7`}>
-        <div>
+        {/* <div>
           <span className={tw`text-gray-900`}>
             Recently played on my Spotify
           </span>
@@ -90,7 +90,7 @@ const Index = ({ data, ...props }: PageProps<BlogPostDetails[]>) => {
           ) : (
             <LoadingLastPlayedSong />
           )}
-        </div>
+        </div> */}
 
         <ul className={tw`space-y-5`}>
           {data.map((post) => {
