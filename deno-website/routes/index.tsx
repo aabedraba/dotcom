@@ -7,7 +7,6 @@ import dayjs from "dayjs";
 import relativetime from "dayjs/plugin/relativeTime";
 import { parse as frontMatter } from "frontmatter";
 import { Layout } from "../components/Layout.tsx";
-import { IS_BROWSER } from "$fresh/runtime.ts";
 
 type BlogPostDetails = {
   slug: string;
@@ -112,8 +111,9 @@ const Index = ({ data, ...props }: PageProps<BlogPostDetails[]>) => {
                   {new Date(post.date).toISOString().split("T")[0]}
                 </span>
                 <div className={tw`flex flex-col`}>
-                  <a href={`/posts/${post.slug}`}>{post.title}</a>
-
+                  <a href={`/posts/${post.slug}`} className={tw`text-blue-600`}>
+                    {post.title}
+                  </a>
                   <div>
                     {post.tags.map((tag) => {
                       return (
@@ -142,7 +142,7 @@ const getBlogPostList = async () => {
   // Deno Deploy, vs when it's running though local dev
   const path =
     Deno.cwd() === "/src"
-      ? `${Deno.cwd()}/deno-website/blogposts`
+      ? `${Deno.cwd()}/deno-website/blogposts/`
       : `${Deno.cwd()}/blogposts/`;
   const fileNames = Deno.readDir(path);
 
