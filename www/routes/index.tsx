@@ -73,7 +73,7 @@ const getBlogPostList = async () => {
   // Deno Deploy, vs when it's running though local dev
   const path =
     Deno.cwd() === "/src"
-      ? `${Deno.cwd()}/deno-website/blogposts/`
+      ? `${Deno.cwd()}/www/blogposts/`
       : `${Deno.cwd()}/blogposts/`;
   const fileNames = Deno.readDir(path);
 

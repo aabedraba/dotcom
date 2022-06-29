@@ -93,7 +93,7 @@ export const getBlogPost = async (slug: string): Promise<BlogPost> => {
   // Deno Deploy, vs when it's running though local dev
   const path =
     Deno.cwd() === "/src"
-      ? `${Deno.cwd()}/deno-website/blogposts/`
+      ? `${Deno.cwd()}/www/blogposts/`
       : `${Deno.cwd()}/blogposts/`;
   const filePath = path + slug + ".md";
 
