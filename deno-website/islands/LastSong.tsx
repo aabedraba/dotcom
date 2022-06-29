@@ -7,10 +7,10 @@ import relativetime from "dayjs/plugin/relativeTime";
 
 const LoadingLastPlayedSong = () => {
   return (
-    <div className="animate-pulse space-y-4 mt-1">
-      <div className="w-56 h-3 bg-gray-200 rounded"></div>
-      <div className="w-56 h-3 bg-gray-200 rounded"></div>
-      <div className="w-40 h-3 bg-gray-200 rounded"></div>
+    <div className={tw`animate-pulse space-y-4 mt-1`}>
+      <div className={tw`w-56 h-3 bg-gray-200 rounded`}></div>
+      <div className={tw`w-56 h-3 bg-gray-200 rounded`}></div>
+      <div className={tw`w-40 h-3 bg-gray-200 rounded`}></div>
     </div>
   );
 };
