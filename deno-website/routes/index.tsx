@@ -16,8 +16,8 @@ type BlogPostDetails = {
 };
 
 export const handler: Handlers<BlogPostDetails[] | null> = {
-  GET(_, ctx) {
-    const blogPostDetailList = getBlogPostList();
+  async GET(_, ctx) {
+    const blogPostDetailList = await getBlogPostList();
 
     return ctx.render(blogPostDetailList);
   },
@@ -66,10 +66,20 @@ const Index = ({ data, ...props }: PageProps<BlogPostDetails[]>) => {
 
   dayjs.extend(relativetime);
 
+  if (!data) {
+    return (
+      <Layout url={props.url}>
+        <div></div>
+      </Layout>
+    );
+  }
+
   return (
     <Layout url={props.url}>
       <div className={tw`space-y-7`}>
-        {/* <div>
+        {
+        // TODO: re-enable last listened
+        /* <div>
           <span className={tw`text-gray-900`}>
             Recently played on my Spotify
           </span>
@@ -125,12 +135,12 @@ const Index = ({ data, ...props }: PageProps<BlogPostDetails[]>) => {
   );
 };
 
-const getBlogPostList = () => {
+const getBlogPostList = async () => {
   const path = Deno.cwd() + "/blogposts/";
-  const fileNames = Deno.readDirSync(path);
+  const fileNames = Deno.readDir(path);
 
   const postList: BlogPostDetails[] = [];
-  for (const fileName of fileNames) {
+  for await (const fileName of fileNames) {
     const filePath = path + fileName.name;
     const decoder = new TextDecoder("utf-8");
     const fileContent = Deno.readFileSync(filePath);
