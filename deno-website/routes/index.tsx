@@ -78,8 +78,8 @@ const Index = ({ data, ...props }: PageProps<BlogPostDetails[]>) => {
     <Layout url={props.url}>
       <div className={tw`space-y-7`}>
         {
-        // TODO: re-enable last listened
-        /* <div>
+          // TODO: re-enable last listened
+          /* <div>
           <span className={tw`text-gray-900`}>
             Recently played on my Spotify
           </span>
@@ -100,7 +100,8 @@ const Index = ({ data, ...props }: PageProps<BlogPostDetails[]>) => {
           ) : (
             <LoadingLastPlayedSong />
           )}
-        </div> */}
+        </div> */
+        }
 
         <ul className={tw`space-y-5`}>
           {data.map((post) => {
@@ -136,14 +137,14 @@ const Index = ({ data, ...props }: PageProps<BlogPostDetails[]>) => {
 };
 
 const getBlogPostList = async () => {
-  const path = Deno.cwd() + "/blogposts/";
+  const path = "./deno-website/blogposts/";
   const fileNames = Deno.readDir(path);
 
   const postList: BlogPostDetails[] = [];
   for await (const fileName of fileNames) {
     const filePath = path + fileName.name;
     const decoder = new TextDecoder("utf-8");
-    const fileContent = Deno.readFileSync(filePath);
+    const fileContent = await Deno.readFile(filePath);
     const decodedContent = decoder.decode(fileContent);
     const result = frontMatter(decodedContent);
     postList.push({
