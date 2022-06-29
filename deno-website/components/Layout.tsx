@@ -31,11 +31,6 @@ export const Layout = ({
     <div
       className={tw`flex flex-col p-3 max-w-2xl mx-auto h-screen justify-between`}
     >
-      <head>
-        <title>Abdallah Abedraba</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/png" href="/favicon.ico" />
-      </head>
       <div
         style={{
           minHeight: "90px",
