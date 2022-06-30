@@ -29,7 +29,7 @@ app.use(async (ctx) => {
   const json = await response.json();
   const lastSong = json.items[0];
 
-  return (ctx.response.body = JSON.stringify(lastSong));
+  return (ctx.response.body = "hello");
 });
 
 await app.listen({ port: parseInt(config.port, 10) });
