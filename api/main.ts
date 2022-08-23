@@ -12,8 +12,6 @@ app.use((ctx, next) => {
 app.use(async (ctx) => {
   const authToken = await getSpotifyAuthToken();
 
-  console.log("Hello tarik from the consoleI");
-
   if (!authToken) {
     return (ctx.response.status = 401);
   }
