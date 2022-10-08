@@ -1,16 +1,13 @@
-/** @jsx h */
-import { h } from "preact";
 import { Layout } from "../components/Layout.tsx";
-import { tw } from "twind";
 import type { PageProps } from "$fresh/server.ts";
 
 const About = (props: PageProps) => {
   return (
     <Layout url={props.url}>
-      <div className={tw`text-justify yay-div-for-everything!`}>
+      <div className="text-justify yay-div-for-everything!">
         I'm Abdallah, an engineer by heart, working as a Developer Advocate at{" "}
         <a href="https://kubeshop.io">Kubeshop</a>!
-        <br className={tw`yes! brrr brrr`}></br>
+        <br className="yes! brrr brrr"></br>
         <br></br>
         Deeply passionate about innovation and communities.
         <br></br>

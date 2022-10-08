@@ -1,16 +1,13 @@
-/** @jsx h */
-import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
-import { tw } from "twind";
 import dayjs from "dayjs";
 import relativetime from "dayjs/plugin/relativeTime";
 
 const LoadingLastPlayedSong = () => {
   return (
-    <div className={tw`animate-pulse space-y-4 mt-1`}>
-      <div className={tw`w-56 h-3 bg-gray-200 rounded`}></div>
-      <div className={tw`w-56 h-3 bg-gray-200 rounded`}></div>
-      <div className={tw`w-40 h-3 bg-gray-200 rounded`}></div>
+    <div className="animate-pulse space-y-4 mt-1">
+      <div className="w-56 h-3 bg-gray-200 rounded"></div>
+      <div className="w-56 h-3 bg-gray-200 rounded"></div>
+      <div className="w-40 h-3 bg-gray-200 rounded"></div>
     </div>
   );
 };
@@ -49,17 +46,17 @@ const LastSong = () => {
   dayjs.extend(relativetime);
   return (
     <div>
-      <span className={tw`text-gray-900`}>Recently played on my Spotify</span>
+      <span className="text-gray-900">Recently played on my Spotify</span>
       {songDetails ? (
-        <div className={tw`flex flex-col`}>
+        <div className="flex flex-col">
           <span>
             <a href={songDetails.songUrl} className="text-blue-600">
               {songDetails.title}
               <p>
-                by <span className={tw`italic`}>{songDetails.artists}</span>
+                by <span className="italic">{songDetails.artists}</span>
               </p>
             </a>
-            <p className={tw`text-gray-900`}>
+            <p className="text-gray-900">
               {(dayjs(songDetails.lastPlayed) as any).fromNow()}
             </p>
           </span>

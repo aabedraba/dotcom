@@ -1,10 +1,7 @@
-/** @jsx h */
-import { h } from "preact";
 import { PageProps, Handlers } from "$fresh/server.ts";
 import { Layout } from "../../components/Layout.tsx";
 import { parse as frontMatter } from "frontmatter";
 import Markdown from "markdown-to-jsx";
-import { tw } from "twind";
 
 type BlogPost = {
   content: string;
@@ -24,58 +21,58 @@ export const handler: Handlers<BlogPost | null> = {
 const Post = ({ data, ...props }: PageProps<BlogPost>) => {
   return (
     <Layout url={props.url}>
-      <div className={tw`space-y-2 text-justify`}>
-        <h1 className={tw`text-2xl`}>{data.title}</h1>
-        <span className={tw`text-sm text-gray-600`}>
+      <div className="space-y-2 text-justify">
+        <h1 className="text-2xl">{data.title}</h1>
+        <span className="text-sm text-gray-600">
           {new Date(data.date).toLocaleString()}
         </span>
         <Markdown
-          className={tw`space-y-7 py-2`}
+          className="space-y-7 py-2"
           options={{
             overrides: {
               a: {
                 props: {
-                  className: tw`hover:underline`,
+                  className: "hover:underline",
                 },
               },
               h1: {
                 props: {
-                  className: tw`text-2xl`,
+                  className: "text-2xl",
                 },
               },
               h2: {
                 props: {
-                  className: tw`ttext-xl font-semibold`,
+                  className: "ttext-xl font-semibold",
                 },
               },
               b: {
                 props: {
-                  className: tw`font-bold`,
+                  className: "font-bold",
                 },
               },
               ul: {
                 props: {
-                  className: tw`list-inside list-disc space-y-4`,
+                  className: "list-inside list-disc space-y-4",
                 },
               },
               ol: {
                 props: {
-                  className: tw`ist-inside list-decimal space-y-4`,
+                  className: "ist-inside list-decimal space-y-4",
                 },
               },
               li: {
                 props: {
-                  className: tw`pl-2`,
+                  className: "pl-2",
                 },
               },
               img: {
                 props: {
-                  className: tw`flex justify-center`,
+                  className: "flex justify-center",
                 },
               },
               code: {
                 props: {
-                  className: tw`bg-gray-200 p-1 text-sm rounded`,
+                  className: "bg-gray-200 p-1 text-sm rounded",
                 },
               },
             },

@@ -1,7 +1,4 @@
-/** @jsx h */
-import { h } from "preact";
 import type { PageProps, Handlers } from "$fresh/server.ts";
-import { tw } from "@twind";
 import { parse as frontMatter } from "frontmatter";
 import { Layout } from "../components/Layout.tsx";
 import LastSong from "../islands/LastSong.tsx";
@@ -32,17 +29,17 @@ const Index = ({ data, ...props }: PageProps<BlogPostDetails[]>) => {
 
   return (
     <Layout url={props.url}>
-      <div className={tw`space-y-7`}>
+      <div className="space-y-7">
         <LastSong />
-        <ul className={tw`space-y-5`}>
+        <ul className="space-y-5">
           {data.map((post) => {
             return (
-              <li key={post.title} className={tw`flex`}>
-                <span className={tw`block pr-10 text-gray-700`}>
+              <li key={post.title} className="flex">
+                <span className="block pr-10 text-gray-700">
                   {new Date(post.date).toISOString().split("T")[0]}
                 </span>
-                <div className={tw`flex flex-col`}>
-                  <a href={`/posts/${post.slug}`} className={tw`text-blue-600`}>
+                <div className="flex flex-col">
+                  <a href={`/posts/${post.slug}`} className="text-blue-600">
                     {post.title}
                   </a>
                   <div>
@@ -51,7 +48,7 @@ const Index = ({ data, ...props }: PageProps<BlogPostDetails[]>) => {
                         <a
                           href={`/tags/${tag}`}
                           key={tag}
-                          className={tw`text-sm text-gray-500 mr-2`}
+                          className="text-sm text-gray-500 mr-2"
                         >
                           #{tag}
                         </a>

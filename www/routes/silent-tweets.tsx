@@ -1,8 +1,5 @@
-/** @jsx h */
-import { h } from "preact";
 import { Layout } from "../components/Layout.tsx";
 import { createClient } from "supabase";
-import { tw } from "twind";
 import { PageProps, Handlers } from "$fresh/server.ts";
 
 type Tweet = {
@@ -21,7 +18,7 @@ export const handler: Handlers<Tweet[] | null> = {
 const SilentTweets = ({ data, ...props }: PageProps<Tweet[]>) => {
   return (
     <Layout url={props.url}>
-      <h1 className={tw`text-2xl`}>
+      <h1 className="text-2xl">
         A collection of micro-thoughts from daily life
       </h1>
       <div>
@@ -30,9 +27,9 @@ const SilentTweets = ({ data, ...props }: PageProps<Tweet[]>) => {
           .sort((a, b) => (a < b ? 1 : -1))
           .map((tweet) => {
             return (
-              <div className={tw`mt-3`} key={tweet.date}>
+              <div className="mt-3" key={tweet.date}>
                 <p>{tweet.text}</p>
-                <p className={tw`text-gray-700 text-sm`}>
+                <p className="text-gray-700 text-sm">
                   {new Date(tweet.date).toLocaleString()}
                 </p>
               </div>

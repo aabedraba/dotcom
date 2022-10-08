@@ -1,6 +1,4 @@
-/** @jsx h */
-import { h, ComponentChildren } from "preact";
-import { tw } from "twind";
+import { ComponentChildren } from "preact";
 
 const Logo = () => (
   <img
@@ -28,28 +26,26 @@ export const Layout = ({
   url: URL;
 }) => {
   return (
-    <div
-      className={tw`flex flex-col p-3 max-w-2xl mx-auto h-screen justify-between`}
-    >
+    <div className="flex flex-col p-3 max-w-2xl mx-auto h-screen justify-between">
       <div
         style={{
           minHeight: "90px",
         }}
-        className={tw`absolute top-0 inset-x-0 shadow-sm z-0`}
+        className="absolute top-0 inset-x-0 shadow-sm z-0"
       />
-      <header className={tw`flex flex-col space-y-1 z-10`}>
-        <a href="/" className={tw`flex text-xl font-bold text-black`}>
+      <header className="flex flex-col space-y-1 z-10">
+        <a href="/" className="flex text-xl font-bold text-black">
           aabedraba.com
           <Logo />
         </a>
-        <nav className={tw`space-x-8`}>
+        <nav className="space-x-8">
           {routes.map((route) => {
             if (url.pathname === route.urlDestination) {
               return (
                 <a
                   href={route.urlDestination}
                   key={route.urlDestination}
-                  className={tw`text-gray-800 font-semibold`}
+                  className="text-gray-800 font-semibold"
                 >
                   {route.text}
                 </a>
@@ -60,7 +56,7 @@ export const Layout = ({
               <a
                 href={route.urlDestination}
                 key={route.urlDestination}
-                className={tw`text-gray-800`}
+                className="text-gray-800"
               >
                 {route.text}
               </a>
@@ -68,8 +64,8 @@ export const Layout = ({
           })}
         </nav>
       </header>
-      <main className={tw`py-10 mb-auto`}>{children}</main>
-      <footer className={tw`flex flex-col text-left text-gray-700`}>
+      <main className="py-10 mb-auto">{children}</main>
+      <footer className="flex flex-col text-left text-gray-700">
         <span>Escape your randomness</span>
         <span>With {"<"}3</span>
       </footer>
