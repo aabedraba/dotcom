@@ -1,7 +1,7 @@
 import { PageProps, Handlers } from "$fresh/server.ts";
 import { Layout } from "../../components/Layout.tsx";
 import { parse as frontMatter } from "frontmatter";
-import Markdown from "markdown-to-jsx";
+import { render } from "deno-gfm";
 
 type BlogPost = {
   content: string;
@@ -19,6 +19,8 @@ export const handler: Handlers<BlogPost | null> = {
 };
 
 const Post = ({ data, ...props }: PageProps<BlogPost>) => {
+  const body = render(data.content);
+
   return (
     <Layout url={props.url}>
       <div className="space-y-2 text-justify">
@@ -26,60 +28,14 @@ const Post = ({ data, ...props }: PageProps<BlogPost>) => {
         <span className="text-sm text-gray-600">
           {new Date(data.date).toLocaleString()}
         </span>
-        <Markdown
-          className="space-y-7 py-2"
-          options={{
-            overrides: {
-              a: {
-                props: {
-                  className: "hover:underline",
-                },
-              },
-              h1: {
-                props: {
-                  className: "text-2xl",
-                },
-              },
-              h2: {
-                props: {
-                  className: "ttext-xl font-semibold",
-                },
-              },
-              b: {
-                props: {
-                  className: "font-bold",
-                },
-              },
-              ul: {
-                props: {
-                  className: "list-inside list-disc space-y-4",
-                },
-              },
-              ol: {
-                props: {
-                  className: "ist-inside list-decimal space-y-4",
-                },
-              },
-              li: {
-                props: {
-                  className: "pl-2",
-                },
-              },
-              img: {
-                props: {
-                  className: "flex justify-center",
-                },
-              },
-              code: {
-                props: {
-                  className: "bg-gray-200 p-1 text-sm rounded",
-                },
-              },
-            },
-          }}
+        <div
+          data-color-mode="light"
+          data-light-theme="light"
+          data-dark-theme="dark"
+          class="markdown-body"
         >
-          {data.content}
-        </Markdown>
+          <div dangerouslySetInnerHTML={{ __html: body }} />
+        </div>
       </div>
     </Layout>
   );
