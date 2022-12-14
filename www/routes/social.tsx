@@ -17,6 +17,9 @@ const Social = (props: PageProps) => {
         <li>
           <a href="https://linkedin.com/in/aabedraba">Linkedin</a>
         </li>
+        <li>
+          <a href="posts_1.html">Old Instagram</a>
+        </li>
       </ul>
     </Layout>
   );
