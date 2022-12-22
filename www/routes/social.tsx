@@ -9,10 +9,7 @@ const Social = (props: PageProps) => {
           <a href="https://github.com/aabedraba">Github</a>
         </li>
         <li>
-          <a href="https://twitter.com/aabedraba">Twitter</a>
-        </li>
-        <li>
-          <a href="https://instagram.com/aabedraba">Instagram</a>
+        <a rel="me" href="https://fosstodon.org/@aabedraba">Mastodon</a>
         </li>
         <li>
           <a href="https://linkedin.com/in/aabedraba">Linkedin</a>
