@@ -1,7 +1,7 @@
 ---
 title: "The Judge"
 date: "2021-11-23T21:30:00.000Z"
-tags: 'movie-review'
+tags: 'movie-review, english'
 ---
 
 [The Judge](https://www.imdb.com/title/tt1872194) tells a story about a father (Robert Duvall) and the broken relationship with his child, played by Robert Downey Jr. 

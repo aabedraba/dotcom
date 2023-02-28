@@ -1,7 +1,7 @@
 ---
 title: "The Pursuit"
 date: "2023-02-28T14:59:00.000Z"
-tags: 'thoughts'
+tags: 'thoughts, english'
 ---
 
 Christian Lete, my dear friend, has introduced me to the concept of The Pursuit lately. I've always been familiar with the saying that "the journey is better than the destination", but I never such a clear and visceral understanding of this concept until I was introduced to this word. 

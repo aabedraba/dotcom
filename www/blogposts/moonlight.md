@@ -1,7 +1,7 @@
 ---
 title: "Moonlight"
 date: "2021-11-28T21:30:00.000Z"
-tags: 'movie-review'
+tags: 'movie-review, english'
 ---
 
 Revisiting [this 3-times Oscar winner](https://www.imdb.com/title/tt4975722) has been such an amazing and pleasurable experience, hitting in a completely different and yet similar way than when I watched it first time 5 years ago.
