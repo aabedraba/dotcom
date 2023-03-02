@@ -72,7 +72,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         .map((tag) => tags.set(tag, tag));
     });
 
-  const pathNames = [...tags.values()].map((tag) => {
+  const pathNames = Array.from(tags.values()).map((tag) => {
     return {
       params: {
         tag,
