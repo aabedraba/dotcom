@@ -1,23 +1,15 @@
-import { Layout } from "../components/Layout.tsx";
-import { createClient } from "supabase";
-import { PageProps, Handlers } from "$fresh/server.ts";
+import { Layout } from "../components/Layout";
+import { GetStaticProps } from "next";
+import { createClient } from "@supabase/supabase-js";
 
 type Tweet = {
   text: string;
   date: number;
 };
 
-export const handler: Handlers<Tweet[] | null> = {
-  async GET(_, ctx) {
-    const tweetList = await getTweets();
-
-    return ctx.render(tweetList);
-  },
-};
-
-const SilentTweets = ({ data, ...props }: PageProps<Tweet[]>) => {
+const SilentTweets = ({ data }: { data: Tweet[] }) => {
   return (
-    <Layout url={props.url}>
+    <Layout>
       <h1 className="text-2xl">
         A collection of micro-thoughts from daily life
       </h1>
@@ -40,9 +32,9 @@ const SilentTweets = ({ data, ...props }: PageProps<Tweet[]>) => {
   );
 };
 
-const getTweets = async (): Promise<Tweet[]> => {
-  const supabaseKey = Deno.env.get("SUPABASE_KEY");
-  const supabaseUrl = Deno.env.get("SUPABASE_URL");
+export const getStaticProps: GetStaticProps<{ data: Tweet[] }> = async () => {
+  const supabaseKey = process.env.SUPABASE_KEY;
+  const supabaseUrl = process.env.SUPABASE_URL;
 
   if (!supabaseKey || !supabaseUrl) {
     throw new Error("Supabase environment variables not defined");
@@ -56,14 +48,16 @@ const getTweets = async (): Promise<Tweet[]> => {
     throw new Error("No data retrieved from database");
   }
 
-  const tweets = data.map((row) => {
-    return {
-      text: row.tweet,
-      date: row.created_at,
-    };
-  });
-
-  return tweets;
+  return {
+    props: {
+      data: data.map((row) => {
+        return {
+          text: row.tweet,
+          date: row.created_at,
+        };
+      }),
+    },
+  };
 };
 
 export default SilentTweets;

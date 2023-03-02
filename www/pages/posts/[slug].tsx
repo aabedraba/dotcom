@@ -1,0 +1,97 @@
+import { GetServerSideProps, GetStaticPaths } from "next";
+import fs from "fs";
+import matter from "gray-matter";
+import ReactMarkdon from "react-markdown";
+import { FC } from "react";
+import { Layout } from "../../components/Layout";
+import rehypeRaw from "rehype-raw";
+
+type PageProps = {
+  content: string;
+  title: string;
+  date: string;
+};
+
+const Post: FC<PageProps> = ({ content, title, date }) => {
+  return (
+    <Layout>
+      <div className="space-y-2 text-justify">
+        <h1 className="text-2xl">{title}</h1>
+        <span className="text-sm text-gray-600">
+          {new Date(date).toLocaleString()}
+        </span>
+        <ReactMarkdon
+          className="space-y-7 py-2"
+          rehypePlugins={[rehypeRaw]}
+          components={{
+            a: ({ node, ...props }) => (
+              <a className="hover:underline" {...props} />
+            ),
+            h1: ({ node, ...props }) => <h1 className="text-2xl" {...props} />,
+            h2: ({ node, ...props }) => (
+              <h2 className="text-xl font-semibold" {...props} />
+            ),
+            b: ({ node, ...props }) => <b className="font-bold" {...props} />,
+            ul: ({ node, ...props }) => (
+              <ul className="list-inside list-disc space-y-4" {...props} />
+            ),
+            ol: ({ node, ...props }) => (
+              <ol className="list-inside list-decimal space-y-4" {...props} />
+            ),
+            li: ({ node, ...props }) => <li className="pl-2" {...props} />,
+            p: ({ node, ...props }) => <p {...props} />,
+            img: ({ node, ...props }) => (
+              <div className="flex justify-center">
+                <img {...props} />
+              </div>
+            ),
+            code: ({ node, ...props }) => (
+              <code
+                className="bg-gray-200 p-1 text-sm rounded"
+                {...props}
+              ></code>
+            ),
+          }}
+        >
+          {content}
+        </ReactMarkdon>
+      </div>
+    </Layout>
+  );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const path = process.cwd() + "/blogposts/";
+  const fileNames = fs.readdirSync(path);
+
+  const pathNames = fileNames.map((fileName) => {
+    return {
+      params: {
+        slug: fileName.replace(".md", "").trim(),
+      },
+    };
+  });
+
+  return {
+    paths: [...pathNames],
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetServerSideProps = async (context) => {
+  const path = process.cwd() + "/blogposts/";
+  const filePath = path + context.params?.slug + ".md";
+
+  const fileContent = fs.readFileSync(filePath, "utf-8");
+  const result = matter(fileContent);
+
+  return {
+    props: {
+      content: result.content,
+      title: result.data.title,
+      date: result.data.date,
+    },
+  };
+};
+
+export default Post;

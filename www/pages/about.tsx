@@ -1,9 +1,8 @@
-import { Layout } from "../components/Layout.tsx";
-import type { PageProps } from "$fresh/server.ts";
+import { Layout } from "../components/Layout";
 
-const About = (props: PageProps) => {
+const About = () => {
   return (
-    <Layout url={props.url}>
+    <Layout>
       <div className="text-justify yay-div-for-everything!">
         I'm Abdallah, an engineer by heart, working as a Developer Advocate at{" "}
         <a href="https://kubeshop.io">Kubeshop</a>!
