@@ -1,0 +1,15 @@
+{
+  "language_overrides": {
+    "TSX": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
+        }
+      }
+    }
+  }
+}

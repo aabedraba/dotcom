@@ -1,7 +1,7 @@
 {
   "name": "www",
   "version": "1.0.0",
-  "description": "This project is done using https://fresh.deno.dev",
+  "description": "Abdallah Abedraba",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
@@ -13,20 +13,22 @@
   "license": "ISC",
   "dependencies": {
     "@vercel/analytics": "^0.1.11",
-    "dayjs": "^1.11.7",
+    "dayjs": "^1.11.8",
     "gray-matter": "^4.0.3",
-    "next": "^13.2.3",
+    "next": "^13.4.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-markdown": "^8.0.5",
-    "rehype-raw": "^6.1.1"
+    "react-markdown": "^8.0.7",
+    "rehype-raw": "^6.1.1",
+    "supports-color": "^8.1.1"
   },
   "devDependencies": {
-    "@types/node": "18.14.4",
-    "@types/react": "^18.0.28",
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.7",
+    "@types/node": "^18.14.4",
+    "@types/react": "^18.2.14",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "prettier": "2.8.8",
+    "tailwindcss": "^3.3.2",
     "typescript": "^4.9.5"
   }
 }
