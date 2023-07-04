@@ -1,6 +1,3 @@
-"use client"
-
-import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
@@ -14,39 +11,17 @@ const LoadingLastPlayedSong = () => {
   );
 };
 
-export const CurrentSong = () => {
-  const [songDetails, setSongDetails] = useState<{
+export const CurrentSong = ({
+  songDetails
+}: {
+  songDetails: {
     title: string;
     artists: string;
     songUrl: string;
-    lastPlayed: Date;
-  } | null>(null);
-
+    lastPlayed: string;
+  } | null;
+}) => {
   dayjs.extend(relativeTime);
-
-
-  useEffect(() => {
-    async function getCurrentSongDetails() {
-      const request = await fetch("https://aabedraba-spotify-auth.deno.dev");
-
-      if (request.status === 401) {
-        return;
-      }
-
-      const json = await request.json();
-
-      setSongDetails({
-        title: json.track.name,
-        artists: json.track.artists
-          .map((artist: { name: string }) => artist.name)
-          .join(", "),
-        songUrl: json.track.external_urls.spotify,
-        lastPlayed: new Date(json.played_at),
-      });
-    }
-
-    getCurrentSongDetails();
-  }, []);
 
   return <div>
     <span className="text-gray-900">Recently played on my Spotify</span>

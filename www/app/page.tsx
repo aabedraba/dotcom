@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { getBlogposts } from "../lib/blogposts";
 import { CurrentSong } from "./current-song";
+import { getSpotifyLastSong } from "./spotify-last-song";
 
-const Index = () => {
+const Index = async () => {
   const postList = getBlogposts()
+  const spotifyLastPlayedSong = await getSpotifyLastSong()
 
   return (
     <div className="space-y-7">
-      <CurrentSong />
+      <CurrentSong songDetails={spotifyLastPlayedSong} />
 
       <ul className="space-y-5">
         {postList.map((post) => {
