@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html>
+    <html lang='en'>
       <body className="flex flex-col p-3 max-w-2xl mx-auto h-screen justify-between">
         <div
           style={{
