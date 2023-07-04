@@ -14,18 +14,21 @@ const getEnv = () => {
 export const getSpotifyAuthToken = async () => {
   const config = getEnv();
 
+  const body = new URLSearchParams({
+    grant_type: "refresh_token",
+    refresh_token: config.spotifyRefreshToken,
+  });
+
+  const authHeader = "Basic " +
+    Buffer.from(config.spotifyClientId + ":" + config.spotifySecret, 'utf-8').toString('base64')
+
   const response = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {
-      Authorization:
-        "Basic " +
-        Buffer.from(config.spotifyClientId + ":" + config.spotifySecret, 'utf-8').toString('base64'),
+      Authorization: authHeader,
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: new URLSearchParams({
-      grant_type: "refresh_token",
-      refresh_token: config.spotifyRefreshToken,
-    }),
+    body
   });
 
   if (response.status !== 200) {
@@ -52,6 +55,9 @@ export const getSpotifyLastSong = async () => {
         Authorization: `Bearer ${authToken}`,
         "Content-Type": "application/json",
       },
+      next: {
+        revalidate: 60
+      }
     }
   );
 
