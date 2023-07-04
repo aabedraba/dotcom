@@ -1,13 +1,15 @@
 # aabedraba.com
 
-This project is done using https://fresh.deno.dev 
+Built with NextJs
 
 ### Usage
 
 Start the project:
 
 ```
-deno task start
+npm install
+npm run dev
 ```
 
 This will watch the project directory and restart as necessary.
+
