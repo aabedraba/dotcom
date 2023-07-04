@@ -1,14 +1,13 @@
 const spotifyClientId = process.env["SPOTIFY_CLIENT_ID"]
 const spotifySecret = process.env["SPOTIFY_CLIENT_SECRET"];
 const spotifyRefreshToken = process.env["SPOTIFY_REFRESH_TOKEN"];
-const port = process.env["PORT"];
 
 const getEnv = () => {
-  if (!spotifyClientId || !spotifySecret || !spotifyRefreshToken || !port) {
+  if (!spotifyClientId || !spotifySecret || !spotifyRefreshToken) {
     throw new Error("Environment variables are not defined");
   }
 
-  return { spotifyClientId, spotifySecret, spotifyRefreshToken, port };
+  return { spotifyClientId, spotifySecret, spotifyRefreshToken };
 };
 
 export const getSpotifyAuthToken = async () => {

@@ -18,7 +18,7 @@ export const CurrentSong = ({
     title: string;
     artists: string;
     songUrl: string;
-    lastPlayed: string;
+    lastPlayed: Date;
   } | null;
 }) => {
   dayjs.extend(relativeTime);
