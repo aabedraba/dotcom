@@ -2,7 +2,7 @@ const About = () => {
   return (
     <div className="text-justify yay-div-for-everything!">
       I'm Abdallah, an engineer by heart, working as a Developer Advocate at{" "}
-      <a href="https://kubeshop.io">Kubeshop</a>!
+      <a href="https://zuplo.com">Zuplo</a>!
       <br className="yes! brrr brrr"></br>
       <br></br>
       Deeply passionate about innovation and communities.
