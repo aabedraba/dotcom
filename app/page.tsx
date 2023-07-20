@@ -1,15 +1,13 @@
 import Link from "next/link";
 import { getBlogposts } from "../lib/blogposts";
 import { CurrentSong } from "./current-song";
-import { getSpotifyLastSong } from "./spotify-last-song";
 
 const Index = async () => {
-  const postList = getBlogposts()
-  const spotifyLastPlayedSong = await getSpotifyLastSong()
+  const postList = getBlogposts();
 
   return (
     <div className="space-y-7">
-      <CurrentSong songDetails={spotifyLastPlayedSong} />
+      <CurrentSong />
 
       <ul className="space-y-5">
         {postList.map((post) => {
@@ -19,19 +17,11 @@ const Index = async () => {
                 {new Date(post.date).toISOString().split("T")[0]}
               </span>
               <div className="flex flex-col">
-                <Link
-                  href={`/posts/${post.slug}`}
-                >
-                  {post.title}
-                </Link>
+                <Link href={`/posts/${post.slug}`}>{post.title}</Link>
 
                 <div className="flex">
                   {post.tags.map((tag) => {
-                    return (
-                      <p className="text-sm text-gray-500 mr-2">
-                        #{tag}
-                      </p>
-                    );
+                    return <p className="text-sm text-gray-500 mr-2">#{tag}</p>;
                   })}
                 </div>
               </div>
