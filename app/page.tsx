@@ -1,13 +1,16 @@
 import Link from "next/link";
 import { getBlogposts } from "../lib/blogposts";
-import { CurrentSong } from "./current-song";
+import { CurrentSong, LoadingLastPlayedSong } from "./current-song";
+import { Suspense } from "react";
 
 const Index = async () => {
   const postList = getBlogposts();
 
   return (
     <div className="space-y-7">
-      <CurrentSong />
+      <Suspense fallback={<LoadingLastPlayedSong />}>
+        <CurrentSong />
+      </Suspense>
 
       <ul className="space-y-5">
         {postList.map((post) => {

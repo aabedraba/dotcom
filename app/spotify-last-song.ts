@@ -1,4 +1,4 @@
-const spotifyClientId = process.env["SPOTIFY_CLIENT_ID"]
+const spotifyClientId = process.env["SPOTIFY_CLIENT_ID"];
 const spotifySecret = process.env["SPOTIFY_CLIENT_SECRET"];
 const spotifyRefreshToken = process.env["SPOTIFY_REFRESH_TOKEN"];
 
@@ -18,8 +18,12 @@ export const getSpotifyAuthToken = async () => {
     refresh_token: config.spotifyRefreshToken,
   });
 
-  const authHeader = "Basic " +
-    Buffer.from(config.spotifyClientId + ":" + config.spotifySecret, 'utf-8').toString('base64')
+  const authHeader =
+    "Basic " +
+    Buffer.from(
+      config.spotifyClientId + ":" + config.spotifySecret,
+      "utf-8"
+    ).toString("base64");
 
   const response = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
@@ -27,23 +31,26 @@ export const getSpotifyAuthToken = async () => {
       Authorization: authHeader,
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body
+    body,
+    next: {
+      revalidate: 60,
+    },
   });
 
   if (response.status !== 200) {
+    console.warn(await response.text());
     return null;
-
   }
 
   const json = await response.json();
   return json["access_token"];
 };
 
-
 export const getSpotifyLastSong = async () => {
   const authToken = await getSpotifyAuthToken();
 
   if (!authToken) {
+    console.warn("Could not get auth token");
     return null;
   }
 
@@ -54,13 +61,12 @@ export const getSpotifyLastSong = async () => {
         Authorization: `Bearer ${authToken}`,
         "Content-Type": "application/json",
       },
-      next: {
-        revalidate: 60
-      }
+      cache: "no-cache",
     }
   );
 
   const json = await response.json();
+
   const songItem = json.items[0];
 
   return {
@@ -70,5 +76,5 @@ export const getSpotifyLastSong = async () => {
       .join(", "),
     songUrl: songItem.track.external_urls.spotify,
     lastPlayed: new Date(songItem.played_at),
-  }
-}
+  };
+};
