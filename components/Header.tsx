@@ -1,5 +1,6 @@
-"use client"
+"use client";
 
+import classNames from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -33,42 +34,35 @@ const Logo = () => (
 const routes = [
   { urlDestination: "/", text: "Blog" },
   { urlDestination: "/about", text: "About me" },
-  { urlDestination: "resume.pdf", text: "Résume" },
+  { urlDestination: "resume.pdf", text: "Résume", external: true },
   { urlDestination: "/social", text: "Social" },
 ];
 
-
 export const Header = () => {
-  const pathname = usePathname()
-  return <header className="flex flex-col space-y-1 z-10">
-    <Link href="/" className="text-xl font-bold text-black">
-      aabedraba.com
-      <Logo />
-    </Link>
-    <nav className="space-x-8">
-      {routes.map((route) => {
-        if (pathname === route.urlDestination) {
+  const pathname = usePathname();
+  return (
+    <header className="flex flex-col space-y-1 z-10">
+      <Link href="/" className="text-xl font-bold text-black">
+        aabedraba.com
+        <Logo />
+      </Link>
+      <nav className="space-x-8">
+        {routes.map((route) => {
           return (
             <Link
-              className="text-gray-800 font-semibold"
+              className={classNames("", {
+                "text-black": pathname === route.urlDestination,
+                "text-gray-600": pathname !== route.urlDestination,
+              })}
               href={route.urlDestination}
               key={route.urlDestination}
+              prefetch={route.external ? route.external : true}
             >
               {route.text}
             </Link>
           );
-        }
-
-        return (
-          <Link
-            className="text-gray-800"
-            href={route.urlDestination}
-            key={route.urlDestination}
-          >
-            {route.text}
-          </Link>
-        );
-      })}
-    </nav>
-  </header>
-}
+        })}
+      </nav>
+    </header>
+  );
+};
