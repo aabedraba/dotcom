@@ -32,9 +32,7 @@ export const getSpotifyAuthToken = async () => {
       "Content-Type": "application/x-www-form-urlencoded",
     },
     body,
-    next: {
-      revalidate: 60,
-    },
+    cache: "no-cache",
   });
 
   if (response.status !== 200) {
