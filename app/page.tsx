@@ -12,7 +12,7 @@ const Index = async () => {
           .map((post) => {
             return (
               <li key={post.title} className="flex">
-                <span className="block pr-10 text-gray-700">
+                <span className="w-32 text-gray-700">
                   {new Date(post.publishDate).toISOString().split("T")[0]}
                 </span>
                 <div className="flex flex-col">
@@ -21,7 +21,9 @@ const Index = async () => {
                   <div className="flex">
                     {post.category.map((tag) => {
                       return (
-                        <p className="text-sm text-gray-500 mr-2">#{tag}</p>
+                        <p key={tag} className="text-sm text-gray-500 mr-2">
+                          #{tag}
+                        </p>
                       );
                     })}
                   </div>
