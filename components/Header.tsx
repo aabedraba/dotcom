@@ -41,10 +41,10 @@ const Logos = () => (
     <a href="https://twitter.com/aabedraba" rel="noopener noreferrer">
       <IconTwitter />
     </a>
-    <a href="github.com/aabedraba" rel="noopener noreferrer">
+    <a href="https://github.com/aabedraba" rel="noopener noreferrer">
       <IconGithub />
     </a>
-    <a href="linkedin.com/in/aabedraba" rel="noopener noreferrer">
+    <a href="https://linkedin.com/in/aabedraba" rel="noopener noreferrer">
       <IconLinkedin />
     </a>
   </div>
