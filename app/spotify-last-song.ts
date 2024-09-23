@@ -4,7 +4,7 @@ const spotifyRefreshToken = process.env["SPOTIFY_REFRESH_TOKEN"];
 
 const getEnv = () => {
   if (!spotifyClientId || !spotifySecret || !spotifyRefreshToken) {
-    throw new Error("Environment variables are not defined");
+    return null;
   }
 
   return { spotifyClientId, spotifySecret, spotifyRefreshToken };
@@ -12,6 +12,11 @@ const getEnv = () => {
 
 export const getSpotifyAuthToken = async () => {
   const config = getEnv();
+
+  if (config === null) {
+    console.warn("Missing Spotify environment variables");
+    return null;
+  }
 
   const body = new URLSearchParams({
     grant_type: "refresh_token",
@@ -22,7 +27,7 @@ export const getSpotifyAuthToken = async () => {
     "Basic " +
     Buffer.from(
       config.spotifyClientId + ":" + config.spotifySecret,
-      "utf-8"
+      "utf-8",
     ).toString("base64");
 
   const response = await fetch("https://accounts.spotify.com/api/token", {
@@ -59,8 +64,7 @@ export const getSpotifyLastSong = async () => {
         Authorization: `Bearer ${authToken}`,
         "Content-Type": "application/json",
       },
-      cache: "no-cache",
-    }
+    },
   );
 
   const json = await response.json();
