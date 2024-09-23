@@ -4,13 +4,11 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-
 @layer base {
   body {
     @apply font-body;
   }
 }
-
 
 ::-moz-selection {
   background: #f1f1f1;
@@ -21,9 +19,4 @@
 }
 ::selection {
   background: #f1f1f1;
-}
-
-a {
-  --tw-text-opacity: 1;
-  color: rgba(37, 99, 235, var(--tw-text-opacity));
 }

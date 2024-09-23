@@ -33,13 +33,13 @@
     "href": "https://medium.com/kubeshop-i/a-gitops-powered-kubernetes-testing-machine-with-argocd-and-testkube-kubeshop-93aeca669bab",
     "title": "A GitOps-Powered Kubernetes Testing Machine with ArgoCD and Testkube",
     "publishDate": "2022-04-14T00:00:00.000Z",
-    "category": ["research"]
+    "category": ["advanced-tutorial"]
   },
   {
     "href": "https://testkube.io/blog/flux-testkube-gitops-testing-is-here",
     "title": "Flux + Testkube: GitOps Testing is here",
     "publishDate": "2023-02-01T00:00:00.000Z",
-    "category": ["research"]
+    "category": ["advanced-tutorial"]
   },
   {
     "href": "https://kusk.io/blog/setup-ingress-controller-cors-configuration",
@@ -75,7 +75,8 @@
     "href": "https://thenewstack.io/what-it-means-to-be-openapi-first-in-kubernetes/",
     "title": "What It Means to Be OpenAPI-First in Kubernetes",
     "publishDate": "2022-07-23T00:00:00.000Z",
-    "category": ["thought-leadership"]
+    "category": ["thought-leadership"],
+    "highlighted": true
   },
   {
     "href": "https://kusk.io/blog/automatic-request-validation-with-openapi",
@@ -93,7 +94,7 @@
     "href": "https://kusk.io/blog/from-design-first-to-automated-deployment-with-openapi",
     "title": "From Design-First to Automated Deployment with OpenAPI",
     "publishDate": "2022-04-20T00:00:00.000Z",
-    "category": ["research-tutorial"]
+    "category": ["advanced-tutorial"]
   },
   {
     "href": "https://zuplo.com/blog/2024/01/25/ratemyopenapi-ai-release",
@@ -111,7 +112,7 @@
     "href": "https://zuplo.com/blog/2023/12/20/monetizing-apis-with-moesif",
     "title": "Monetizing APIs: a step easier with Moesif",
     "publishDate": "2023-12-20T00:00:00.000Z",
-    "category": ["announcement", "tutorial"]
+    "category": ["announcement", "partnership"]
   },
   {
     "href": "https://zuplo.com/blog/2023/11/15/tightening-the-feedback-loop",
@@ -129,7 +130,8 @@
     "href": "https://zuplo.com/blog/2023/10/23/optimize-TTFC-with-api-keys",
     "title": "Optimize Time-To-First-Call with API key auth",
     "publishDate": "2023-10-23T00:00:00.000Z",
-    "category": ["thought-leadership"]
+    "category": ["thought-leadership"],
+    "highlighted": true
   },
   {
     "href": "https://zuplo.com/blog/2023/10/17/announcing-rate-my-openapi",
