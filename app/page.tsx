@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="text-justify yay-div-for-everything!">
+    <div className="text-justify">
       Hi, I'm <strong>Abdallah</strong>! 👋
       <br></br>
       <br></br>

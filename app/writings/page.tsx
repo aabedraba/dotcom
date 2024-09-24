@@ -54,7 +54,10 @@ export default function Component() {
           </h2>
           <ul className="space-y-4">
             {highlightedArticles.map((post) => (
-              <li key={post.title} className="bg-blue-50 p-4 rounded-lg">
+              <li
+                key={post.title}
+                className="bg-gray-200 dark:bg-gray-700 p-4 rounded-lg"
+              >
                 <ArticleItem post={post} />
               </li>
             ))}
@@ -73,8 +76,8 @@ export default function Component() {
               onClick={() => toggleTag(tag)}
               className={`px-3 py-1 text-sm rounded-full ${
                 selectedTags.includes(tag)
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  ? "bg-gray-500 text-white"
+                  : "bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300"
               }`}
             >
               #{tag}
@@ -96,7 +99,7 @@ export default function Component() {
 function ArticleItem({ post }) {
   return (
     <div className="flex">
-      <span className="w-32 text-gray-700">
+      <span className="w-32 text-gray-700 dark:text-gray-300">
         {new Date(post.publishDate).toISOString().split("T")[0]}
       </span>
       <div className="flex flex-col">
@@ -111,7 +114,10 @@ function ArticleItem({ post }) {
         </div>
         <div className="flex">
           {post.category.map((tag) => (
-            <p key={tag} className="text-sm text-gray-500 mr-2">
+            <p
+              key={tag}
+              className="text-sm text-gray-500 dark:text-gray-400 mr-2"
+            >
               #{tag}
             </p>
           ))}

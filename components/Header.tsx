@@ -3,6 +3,7 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { DarkModeToggle } from "./DarkModeToggle";
 
 const routes = [
   { urlDestination: "/", text: "About me" },
@@ -13,14 +14,15 @@ const routes = [
 export const Header = () => {
   const pathname = usePathname();
   return (
-    <header className="flex justify-between mt-5">
+    <header className="flex justify-between mt-5 items-center">
       <nav className="space-x-8">
         {routes.map((route) => {
           return (
             <Link
               className={classNames("", {
-                "text-black": pathname === route.urlDestination,
-                "text-gray-600": pathname !== route.urlDestination,
+                "text-black dark:text-white": pathname === route.urlDestination,
+                "text-gray-600 dark:text-gray-400":
+                  pathname !== route.urlDestination,
               })}
               href={route.urlDestination}
               key={route.urlDestination}
@@ -31,20 +33,35 @@ export const Header = () => {
           );
         })}
       </nav>
-      <Logos />
+      <div className="flex items-center space-x-4">
+        <Logos />
+        <DarkModeToggle />
+      </div>
     </header>
   );
 };
 
 const Logos = () => (
-  <div className="flex space-x-4">
-    <a href="https://twitter.com/aabedraba" rel="noopener noreferrer">
+  <div className="flex">
+    <a
+      href="https://twitter.com/aabedraba"
+      rel="noopener noreferrer"
+      className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+    >
       <IconTwitter />
     </a>
-    <a href="https://github.com/aabedraba" rel="noopener noreferrer">
+    <a
+      href="https://github.com/aabedraba"
+      rel="noopener noreferrer"
+      className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+    >
       <IconGithub />
     </a>
-    <a href="https://linkedin.com/in/aabedraba" rel="noopener noreferrer">
+    <a
+      href="https://linkedin.com/in/aabedraba"
+      rel="noopener noreferrer"
+      className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+    >
       <IconLinkedin />
     </a>
   </div>
@@ -54,7 +71,7 @@ function IconTwitter(props) {
   return (
     <svg
       viewBox="0 0 1024 1024"
-      fill="black"
+      fill="currentColor"
       height="25px"
       width="25px"
       {...props}
@@ -68,7 +85,7 @@ function IconGithub(props) {
   return (
     <svg
       viewBox="0 0 1024 1024"
-      fill="black"
+      fill="currentColor"
       height="25px"
       width="25px"
       {...props}
@@ -82,7 +99,7 @@ function IconLinkedin(props) {
   return (
     <svg
       viewBox="0 0 1024 1024"
-      fill="black"
+      fill="currentColor"
       height="25px"
       width="25px"
       {...props}
