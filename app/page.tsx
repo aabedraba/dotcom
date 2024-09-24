@@ -4,7 +4,7 @@ const About = () => {
       Hi, I'm <strong>Abdallah</strong>! 👋
       <br></br>
       <br></br>
-      An engineer by heart, but rather than settling into one role, I've
+      An engineer at heart, but rather than settling into one role, I've
       embraced the nature of small startup teams where I've worked as an
       engineer, developer relations lead, and product lead.
       <br></br>
