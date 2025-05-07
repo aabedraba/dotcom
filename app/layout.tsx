@@ -1,6 +1,5 @@
 import { Header } from "../components/Header";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "next-themes";
 
 export const metadata = {
@@ -23,7 +22,6 @@ export default function RootLayout({
             <span>Escape your randomness</span>
             <span>With {"<"}3</span>
           </footer>
-          <Analytics />
         </ThemeProvider>
       </body>
     </html>
