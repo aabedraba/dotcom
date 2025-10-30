@@ -35,7 +35,6 @@ export const Header = () => {
       </nav>
       <div className="flex items-center space-x-4">
         <Logos />
-        <DarkModeToggle />
       </div>
     </header>
   );
