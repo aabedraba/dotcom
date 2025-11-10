@@ -1,0 +1,140 @@
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
+\setmainfont{Poppins}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{graphicx}
+
+% Page setup
+\geometry{
+    a4paper,
+    left=0.75in,
+    right=0.75in,
+    top=0.6in,
+    bottom=0.6in
+}
+
+% Colors
+\definecolor{headerred}{RGB}{231, 76, 60}
+\definecolor{darkgray}{RGB}{64, 64, 64}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=black,
+    pdftitle={Abdallah Abedraba - Resume},
+    pdfauthor={Abdallah Abedraba}
+}
+
+% Section formatting
+\titleformat{\section}
+    {\color{headerred}\large\bfseries\uppercase}
+    {}
+    {0em}
+    {}
+    [\titlerule]
+
+\titlespacing*{\section}{0pt}{14pt}{8pt}
+
+% Custom commands
+\newcommand{\resumeSubheading}[4]{
+    \vspace{4pt}
+    \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+        \textbf{#1} & #2 \\
+        #3 & #4
+    \end{tabular*}
+    \vspace{-4pt}
+}
+
+% Adjust list spacing
+\setlist[itemize]{label=\scalebox{0.7}{$\bullet$}, leftmargin=*, itemsep=2pt, font=\small}
+
+% Line spacing
+\linespread{1.05}
+
+% Remove paragraph indentation
+\setlength{\parindent}{0pt}
+
+% Remove page numbers
+\pagestyle{empty}
+
+\begin{document}
+
+% Header
+{\Huge \textbf{\color{headerred}Abdallah Abedraba}}
+
+\vspace{8pt}
+
+Seville • +3461115934 • \href{mailto:a@abedraba.com}{a@abedraba.com} • \href{https://linkedin.com/in/aabedraba}{linkedin.com/in/aabedraba}
+
+\vspace{10pt}
+
+% Summary
+Software engineer with 8+ years building production systems at scale (200k+ users). Experience spanning IC roles to leading 10-person teams. Proven track record in developer tools, API infrastructure, and open-source projects.
+
+\vspace{8pt}
+
+\textbf{Skills:} Docker, GCP/AWS, Kubernetes, Serverless, GraphQL/REST, Next.js, Node, PostgreSQL, React, TypeScript
+
+\section{Work Experience}
+
+\resumeSubheading
+{Producta.ai}{06/2024 - 11/2025}
+{CTO, Co-Founder}{Seville, Spain (Remote)}
+
+\begin{itemize}
+    \item Built AI coding agent with novel multi-agent architecture replacing RAG with file summarization and layered code search; improved output quality significantly vs. competitors.
+    \item Architected agentic pipeline: input validation layer, multi-stage code search, expert model routing for complex tasks, and automated PR generation with GitHub integration.
+    \item Designed zero-dashboard product living entirely in Linear/GitHub; reached ProductHunt \#3 and engaged 1000+ companies before pivoting based on market feedback.
+\end{itemize}
+
+\resumeSubheading
+{Zuplo}{05/2023 - 06/2024}
+{Staff Developer Relations}{Dubai, UAE (Remote)}
+
+\begin{itemize}
+    \item Built open-source Rate-My-OpenAPI tool (400 stars, +10k reports generated).
+    \item Led Supabase integration building API key auth, rate limiting, and documentation features; resulted in 2x paid registrations.
+    \item Led Go-To-Market strategy including conferences, partnerships, paid ads, and technical content.
+\end{itemize}
+
+\resumeSubheading
+{Kubeshop}{11/2021 - 05/2023}
+{Product Leader}{Dubai, UAE (Remote)}
+
+\begin{itemize}
+    \item I led engineering (10 reports), technical roadmap and architecture discussions, building open-source dev-tools like Testkube (Kubernetes test runner) and Kusk (API Gateway).
+    \item Built serverless API gateway, matching Kusk feature parity in 1 month solo (vs. 8 months, 4-engineer team); extensive research into V8 isolates and edge architectures.
+\end{itemize}
+
+\resumeSubheading
+{GreenMobility}{10/2019 - 11/2021}
+{Fullstack Developer}{Copenhagen, Denmark}
+
+\begin{itemize}
+    \item I architected and built our platform from the ground up, delivering 2 consumer applications and scaling high-throughput systems (2M events per day) on serverless infrastructure.
+    \item Shipped features daily to 200k customers and built internal portals to manage fleet of 600 cars.
+\end{itemize}
+
+\resumeSubheading
+{Google}{09/2018 - 10/2019}
+{Developer Relations}{Madrid, Spain}
+
+\begin{itemize}
+    \item Led training in European universities with 800 students, giving workshops on Google Cloud.
+    \item Managed relationships with 65 developer communities in Europe with thousands of members, with 1-on-1 meetings to discuss needs and funding; and helped to create 15 new communities.
+\end{itemize}
+
+\section{Education}
+
+\textbf{BS Computer Science} \\
+Universidad de Jaen \hfill 09/2015 - 07/2018
+
+\end{document}
