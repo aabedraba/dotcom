@@ -20,10 +20,7 @@ The resume is built with LaTeX using XeLaTeX and the Poppins font.
 ### Prerequisites
 
 1. Install TinyTeX (minimal LaTeX distribution):
-   ```bash
-   # macOS
-   brew install --cask tinytex
-   ```
+  https://yihui.org/tinytex/
 
 2. Install required LaTeX packages:
    ```bash
