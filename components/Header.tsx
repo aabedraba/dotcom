@@ -43,13 +43,6 @@ export const Header = () => {
 const Logos = () => (
   <div className="flex">
     <a
-      href="https://twitter.com/aabedraba"
-      rel="noopener noreferrer"
-      className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
-    >
-      <IconTwitter />
-    </a>
-    <a
       href="https://github.com/aabedraba"
       rel="noopener noreferrer"
       className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
